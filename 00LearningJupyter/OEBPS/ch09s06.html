@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Scala higher-order functions</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Scala higher-order functions"><div class="titlepage"><div><div><h1 class="title"><a id="ch09lvl1sec70"/>Scala higher-order functions</h1></div></div></div><p>A higher-order function either takes other functions as arguments or returns a function as its result.</p><p>We can use this example script:</p><pre class="programlisting">
+<span class="strong"><strong>def squared(x: Int): Int = x * x</strong></span>
+<span class="strong"><strong>def cubed(x: Int): Int = x * x * x</strong></span>
+<span class="strong"><strong>def process(a: Int, processor: Int =&gt; Int): Int = {processor(a) }</strong></span>
+<span class="strong"><strong>val fiveSquared = process(5, squared)</strong></span>
+<span class="strong"><strong>val sevenCubed = process(7, cubed)</strong></span>
+</pre><p>We define two functions; one squares the number passed and the other cubes the number passed.</p><p>Next, we define the higher-order function that takes the number to work on and the processor to apply.</p><p>Lastly, we call each one. For example, we call <code class="literal">process()</code> with <code class="literal">5</code> and the <code class="literal">squared()</code> function. The <code class="literal">process()</code> function passes the <code class="literal">5</code> to the <code class="literal">squared()</code> function and returns the result:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_09_008.jpg" alt="Scala higher-order functions"/></div><p>
+</p><p>We take advantage of the Scala's engine automatically printing out variable values to see the result expected.</p></div></body></html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Node.js d3 package</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Node.js d3 package"><div class="titlepage"><div><div><h1 class="title"><a id="ch05lvl1sec44"/>Node.js d3 package</h1></div></div></div><p>The <code class="literal">d3</code> package has data access functionality. In this case, we will read from a tab-separated file and compute an average. Note the use of the underscore variable name for <code class="literal">lodash</code>. Variable names starting with an&#xA0;underscore are assumed to be private, although, in this case, it is just a play on the name of the package we are using, <code class="literal">lodash</code>, or underscore. Also, <code class="literal">lodash</code>&#xA0;is a widely used utility package.</p><p>The script we use is as follows:</p><pre class="programlisting">
+<span class="strong"><strong>var fs = require("fs");</strong></span>
+<span class="strong"><strong>var d3 = require("d3");</strong></span>
+<span class="strong"><strong>var _ = require("lodash");</strong></span>
+<span class="strong"><strong>//read in the animals file</strong></span>
+<span class="strong"><strong>fs.readFile("data/animals.tsv", "utf8", function(error, data) {</strong></span>
+<span class="strong"><strong>    data = d3.tsv.parse(data);</strong></span>
+<span class="strong"><strong>//display on screen</strong></span>
+<span class="strong"><strong>    console.log(JSON.stringify(data));</strong></span>
+<span class="strong"><strong>//compute the maximum weight</strong></span>
+<span class="strong"><strong>    var maxWeight = d3.max(data, function(d) { return d.avg_weight; });</strong></span>
+<span class="strong"><strong>//display the max on screen</strong></span>
+<span class="strong"><strong>    console.log(maxWeight);</strong></span>
+<span class="strong"><strong>});</strong></span>
+</pre><p>This assumes we have previously loaded the <code class="literal">fs</code> and <code class="literal">d3</code> packages using <code class="literal">npm</code>, as described in the previous script.</p><p>For this example, I created a <code class="literal">data</code> sub-directory in the same directory my notebook is located (usually the user's home directory) and created a tabbed file (<code class="literal">animal.tsv</code>) in that directory:</p><div class="note" title="Note" style=""><div class="inner"><h3 class="title"><a id="note20"/>Note</h3><p>The use of <code class="literal">&lt;tab&gt;</code>&#xA0;contains an actual tab character.</p></div></div><pre class="programlisting">name&lt;tab&gt;avg_weight 
+lion&lt;tab&gt;400 
+tiger&lt;tab&gt;400 
+human&lt;tab&gt;150 
+elephant&lt;tab&gt;2000 
+</pre><p>If we load this script into a notebook and run it, we get&#xA0;the following output, as expected:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_05_005.jpg" alt="Node.js d3 package"/></div><p>
+</p><p>Interestingly, the <code class="literal">max</code> function does not work as expected. I would have expected that the <code class="literal">2000</code> pounds of the <code class="literal">elephant</code> value would be displayed. I have since been informed that if the script property converted the strings to numbers the correct results would have been portrayed.</p></div></body></html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Standard Julia capabilities</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Standard Julia capabilities"><div class="titlepage"><div><div><h1 class="title"><a id="ch04lvl1sec32"/>Standard Julia capabilities</h1></div></div></div><p>Similar to functions in other languages, Julia can perform most of the rudimentary statistics on your data using the <code class="literal">describe</code> function, as in the example script that follows:</p><pre class="programlisting">
+<span class="strong"><strong>using RDatasets</strong></span>
+<span class="strong"><strong>describe(dataset("datasets", "iris"))</strong></span>
+</pre><p>This script accesses the Iris dataset and displays summary statistics on the dataset.</p><p>If we were to build a notebook to show <code class="literal">describe</code> in use against the <code class="literal">iris</code> dataset (loaded in the&#xA0;previous example), we would end up with a display like this:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_04_009.jpg" alt="Standard Julia capabilities"/></div><p>
+</p><p>You can see the standard statistics generated for each of the variables in the dataset. I thought it was interesting that the count and percentage of NA values in the dataset are provided. I have found that I usually have to double-check to exclude this data using other languages. Here, it is a quick, built-in reminder.</p></div></body></html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Scala data access in Jupyter</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Scala data access in Jupyter"><div class="titlepage"><div><div><h1 class="title"><a id="ch09lvl1sec66"/>Scala data access in Jupyter</h1></div></div></div><p>There is a copy of the iris dataset on the University of California, Irvine website at 
+<a class="ulink" href="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data">https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data</a>
+. We will access this data and perform some simpler statistics on the same.</p><p>The Scala code is as follows:</p><pre class="programlisting">
+<span class="strong"><strong>import scala.io.Source;</strong></span>
+<span class="strong"><strong>//copied file locally https://archive.ics.uci.edu/ml/
+      machine-learning-databases/iris/iris.data</strong></span>
+<span class="strong"><strong>val filename = "iris.data"
+</strong></span>
+<span class="strong"><strong>//DEBUGGING Uncomment this line to display more information -</strong></span>
+<span class="strong"><strong>println("SepalLength, SepalWidth, PetalLength, PetalWidth, Class");</strong></span>
+<span class="strong"><strong>val array = scala.collection.mutable.ArrayBuffer.empty[Float]</strong></span>
+<span class="strong"><strong>for (line &lt;- Source.fromFile(filename).getLines) {</strong></span>
+<span class="strong"><strong>    var cols = line.split(",").map(_.trim);</strong></span>
+<span class="strong"><strong>    //println(s"${cols(0)}|${cols(1)}|${cols(2)}|
+          ${cols(3)} |${cols(4)}");</strong></span>
+<span class="strong"><strong>    val i = cols(0).toFloat</strong></span>
+<span class="strong"><strong>    array += i;</strong></span>
+<span class="strong"><strong>}</strong></span>
+<span class="strong"><strong>val count = array.length;</strong></span>
+<span class="strong"><strong>var min:Double = 9999.0;</strong></span>
+<span class="strong"><strong>var max:Double = 0.0;</strong></span>
+<span class="strong"><strong>var total:Double = 0.0;</strong></span>
+<span class="strong"><strong>for ( x &lt;- array ) {</strong></span>
+<span class="strong"><strong>    if (x &lt; min) { min = x; }</strong></span>
+<span class="strong"><strong>    if (x &gt; max) { max = x; }</strong></span>
+<span class="strong"><strong>    total += x;     </strong></span>
+<span class="strong"><strong>}</strong></span>
+<span class="strong"><strong>val mean:Double = total / count;</strong></span>
+</pre><p>Scala will complain bitterly about any excess spaces that may be in the original file. Be sure to trim the file exactly. There seems to be an issue with accessing the CSV file over the Internet. So, I copied the file locally (to the same directory where the notebook resides).</p><p>Of note in this script is that we do not have to wrap the Scala code in an object, as would normally be required&#xA0;since Jupyter is providing the <code class="literal">wrapper</code> class.</p><p>When we run the script, we see these results:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_09_004.jpg" alt="Scala data access in Jupyter"/></div><p>
+</p><p>This is a different version of the Iris data; hence, we see different results in the statistics than we saw in 
+<a class="link" href="ch02.html" title="Chapter&#xA0;2.&#xA0;Jupyter Python Scripting">Chapter 2</a>
+, <span class="emphasis"><em>Jupyter Python Scripting</em></span>.</p></div></body></html>

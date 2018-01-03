@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Node.js plotly package</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Node.js plotly package"><div class="titlepage"><div><div><h1 class="title"><a id="ch05lvl1sec48"/>Node.js plotly package</h1></div></div></div><p>
+<code class="literal">plotly</code> is a package that works differently to most. To use their software, you must register with a username and be provided an API key (at 
+<a class="ulink" href="https://plot.ly/">https://plot.ly/</a>). You then place the username and API key in your script. At that point you can use all of the <code class="literal">plotly</code> features.</p><p>Firstly, like other packages, we need to install it:</p><pre class="programlisting">
+<span class="strong"><strong>npm install plotly</strong></span>
+</pre><p>Once installed, we can reference the <code class="literal">plotly</code> package as needed. Using a simple script, we can generate a histogram with <code class="literal">plotly</code>:</p><pre class="programlisting">
+<span class="strong"><strong>//set random seed</strong></span>
+<span class="strong"><strong>var seedrandom = require('seedrandom');</strong></span>
+<span class="strong"><strong>var rng = seedrandom('Jupyter');</strong></span>
+<span class="strong"><strong>//setup plotly</strong></span>
+<span class="strong"><strong>var plotly = require('plotly')(username="&lt;username&gt;", api_key="&lt;key&gt;")</strong></span>
+<span class="strong"><strong>var x = [];</strong></span>
+<span class="strong"><strong>for (var i = 0; i &lt; 500; i ++) {</strong></span>
+<span class="strong"><strong>    x[i] = Math.random();</strong></span>
+<span class="strong"><strong>}</strong></span>
+<span class="strong"><strong>require('plotly')(username, api_key);</strong></span>
+<span class="strong"><strong>var data = [</strong></span>
+<span class="strong"><strong>  {</strong></span>
+<span class="strong"><strong>    x: x,</strong></span>
+<span class="strong"><strong>    type: "histogram"</strong></span>
+<span class="strong"><strong>  }</strong></span>
+<span class="strong"><strong>];</strong></span>
+<span class="strong"><strong>var graphOptions = {filename: "basic-histogram", fileopt: "overwrite"};</strong></span>
+<span class="strong"><strong>plotly.plot(data, graphOptions, function (err, msg) {</strong></span>
+<span class="strong"><strong>    console.log(msg);</strong></span>
+<span class="strong"><strong>});</strong></span>
+</pre><p>Once loaded and run in Jupyter as a notebook, we get the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/B05207_5_12.jpg" alt="Node.js plotly package"/></div><p>
+</p><p>Instead of creating a local file, or just displaying the graphic on screen, any graphic is created and stored on the plotly site and the output of the plot command is a set of return values from your graphic creation. Most important is the URL where you can access the graphic.</p><p>So ideally, what should happen is that I should be able to access my graphic (histogram) using the URL provided, which is 
+<a class="ulink" href="https://plot.ly/~dantoomey/1">https://plot.ly/~dantoomey/1</a>
+. The returned URL works as expected,&#xA0;inserting a tilde character in the URL. However, when I looked around the plotly site, I did find my graphics in slightly different paths than expected. All of your graphics are in your home page, for example,&#xA0;
+<a class="ulink" href="https://plot.ly/~dantoomey">https://plot.ly/~dantoomey</a>
+. I can now access all of my graphics and the histogram is shown:</p><p>
+</p><div class="mediaobject"><img src="graphics/B05207_5_13.jpg" alt="Node.js plotly package"/></div><p>
+</p></div></body></html>

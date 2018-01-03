@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Scala traits</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Scala traits"><div class="titlepage"><div><div><h1 class="title"><a id="ch09lvl1sec76"/>Scala traits</h1></div></div></div><p>A <span class="strong"><strong>trait</strong></span> in Scala defines a set of features that can be implemented by classes. A trait is similar to an interface in Java.</p><p>A trait can be partially implemented, forcing the user (class) of the trait to implement the details.</p><p>For example, we can have this code:</p><pre class="programlisting">
+<span class="strong"><strong>trait Color {</strong></span>
+<span class="strong"><strong>    def isRed(): Boolean</strong></span>
+<span class="strong"><strong>}</strong></span>
+<span class="strong"><strong>class Red extends Color {</strong></span>
+<span class="strong"><strong>    def isRed() = true</strong></span>
+<span class="strong"><strong>}</strong></span>
+<span class="strong"><strong>class Blue extends Color {</strong></span>
+<span class="strong"><strong>    def isRed() = false</strong></span>
+<span class="strong"><strong>}</strong></span>
+<span class="strong"><strong>var red = new Red();</strong></span>
+<span class="strong"><strong>var blue = new Blue();</strong></span>
+<span class="strong"><strong>red.isRed()</strong></span>
+<span class="strong"><strong>blue.isRed()</strong></span>
+</pre><p>The code creates a <code class="literal">trait</code> called <code class="literal">Color</code> with one partially implemented function, <code class="literal">isRed</code>. So, every class that uses <code class="literal">Color</code> will have to implement <code class="literal">isRed()</code>.</p><p>We then implement two classes, <code class="literal">Red</code> and <code class="literal">Blue</code>, that extend the <code class="literal">Color</code> trait (this is the Scala syntax for using a trait). Since the <code class="literal">isRed()</code> function is partially implemented, both classes have to provide implementations for the <code class="literal">trait</code> function.</p><p>We can see how this operates in the following screenshot of the notebook display:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_09_014.jpg" alt="Scala traits"/></div><p>
+</p><p>We see (in the output section at the bottom) the trait and classes created, the two instances created, and the result of calling upon the <code class="literal">trait</code> function for both classes.</p></div></body></html>

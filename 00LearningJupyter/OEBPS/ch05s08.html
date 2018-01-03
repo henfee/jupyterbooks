@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Node.js canvas package</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Node.js canvas package"><div class="titlepage"><div><div><h1 class="title"><a id="ch05lvl1sec47"/>Node.js canvas package</h1></div></div></div><p>The <code class="literal">canvas</code> package is used for generating graphics in Node.js. We can use the example from the Canvas home page (<a class="ulink" href="https://www.npmjs.com/package/canvas">https://www.npmjs.com/package/canvas</a>).</p><p>First we need to install <code class="literal">canvas</code> and its dependencies. There are directions on the home page for the different operating systems, but it is very familiar to the tools we have seen before (we have seen them for macOS):</p><pre class="programlisting">
+<span class="strong"><strong>npm install canvas</strong></span>
+<span class="strong"><strong>brew install pkg-config cairo libpng jpeg giflib</strong></span>
+</pre><p>With the <code class="literal">canvas</code> package installed on your machine, we can use a small Node.js script to create a graphic:</p><pre class="programlisting">
+<span class="strong"><strong>// create a canvas 200 by 200 pixels</strong></span>
+<span class="strong"><strong>var Canvas = require('canvas')</strong></span>
+<span class="strong"><strong>  , Image = Canvas.Image</strong></span>
+<span class="strong"><strong>  , canvas = new Canvas(200, 200)</strong></span>
+<span class="strong"><strong>  , ctx = canvas.getContext('2d')</strong></span>
+<span class="strong"><strong>  , string = "Jupyter!";</strong></span>
+<span class="strong"><strong>// place our string on the canvas</strong></span>
+<span class="strong"><strong>ctx.font = '30px Impact';</strong></span>
+<span class="strong"><strong>ctx.rotate(.1);</strong></span>
+<span class="strong"><strong>ctx.fillText(string, 50, 100);</strong></span>
+<span class="strong"><strong>var te = ctx.measureText(string);</strong></span>
+<span class="strong"><strong>ctx.strokeStyle = 'rgba(0,0,0,0.5)';</strong></span>
+<span class="strong"><strong>ctx.beginPath();</strong></span>
+<span class="strong"><strong>ctx.lineTo(50, 102);</strong></span>
+<span class="strong"><strong>ctx.lineTo(50 + te.width, 102);</strong></span>
+<span class="strong"><strong>ctx.stroke();</strong></span>
+<span class="strong"><strong>//create an html img tag, with embedded graphics</strong></span>
+<span class="strong"><strong>console.log('&lt;img src="' + canvas.toDataURL() + '" /&gt;');</strong></span>
+</pre><p>This script is creating a canvas, writing the string <code class="literal">Jupyter!</code> across the canvas and then generating an HTML <code class="literal">img</code> tag with the graphic.</p><p>After we run the script in a notebook, we get the <code class="literal">img</code> tag as the output:</p><p>
+</p><div class="mediaobject"><img src="graphics/B05207_5_10.jpg" alt="Node.js canvas package"/></div><p>
+</p><p>We can take the <code class="literal">img</code> tag, save it to an HTML page, and then open the HTML file with a browser to display our graphic:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_05_011.jpg" alt="Node.js canvas package"/></div><p>
+</p></div></body></html>

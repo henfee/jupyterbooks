@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Scala closures</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Scala closures"><div class="titlepage"><div><div><h1 class="title"><a id="ch09lvl1sec69"/>Scala closures</h1></div></div></div><p>A closure is a function. The resultant&#xA0;function&#xA0;value depends on the value of the variable(s) declared outside the function.</p><p>We can use this small script to illustrate it:</p><pre class="programlisting">
+<span class="strong"><strong>var factor = 7</strong></span>
+<span class="strong"><strong>val multiplier = (i:Int) =&gt; i * factor</strong></span>
+<span class="strong"><strong>val a = multiplier(11)</strong></span>
+<span class="strong"><strong>val b = multiplier(12)</strong></span>
+</pre><p>We define a function named <code class="literal">multiplier</code>. The function expects an integer argument. For each argument, we take the argument and multiply it by the external variable factor.</p><p>We see this result:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_09_007.jpg" alt="Scala closures"/></div><p>
+</p></div></body></html>

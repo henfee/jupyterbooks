@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Python graphics in Jupyter</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Python graphics in Jupyter"><div class="titlepage"><div><div><h1 class="title"><a id="ch02lvl1sec19"/>Python graphics in Jupyter</h1></div></div></div><p>How does Python graphics work in Jupyter?</p><p>I started another view for this named <code class="literal">Python Graphics</code> so as to distinguish the work from the previous work.</p><p>If we were to build a sample dataset of baby names and the&#xA0;number of births in a year of that name, we could then plot the data.</p><p>The Python coding is simple:</p><pre class="programlisting">
+<span class="strong"><strong>import pandas</strong></span>
+<span class="strong"><strong>import matplotlib</strong></span>
+<span class="strong"><strong>%matplotlib inline</strong></span>
+<span class="strong"><strong>baby_name = ['Alice','Charles','Diane','Edward']</strong></span>
+<span class="strong"><strong>number_births = [96, 155, 66, 272]</strong></span>
+<span class="strong"><strong>dataset = list(zip(baby_name,number_births))</strong></span>
+<span class="strong"><strong>df = pandas.DataFrame(data = dataset, columns=['Name', 'Number'])</strong></span>
+<span class="strong"><strong>df['Number'].plot()</strong></span>
+</pre><p>The steps of the script are as follows:</p><div class="orderedlist"><ol class="orderedlist arabic"><li class="listitem">Import the graphics library (and data library) that we need.</li><li class="listitem">Define our data.</li><li class="listitem">Convert the data into a format that allows easy graphical display.</li><li class="listitem">Plot the data.</li></ol></div><p>We would expect a graph of the number of births by baby name.</p><p>If we take the preceding script and place it into cells of our Jupyter&#xA0;Notebook, we get something that looks like the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_02_014.jpg" alt="Python graphics in Jupyter"/></div><p>
+</p><p>I have broken the script into different cells for easier readability. Having different cells also allows you to develop the script easily step by step, and you can display the values computed so far to validate your results. I have done this in most of the cells by displaying the <code class="literal">dataset</code> and <code class="literal">DataFrame</code> at the bottom of those cells.</p><p>When we run this script (<span class="strong"><strong>Cell</strong></span> | <span class="strong"><strong>Run&#xA0;</strong></span>
+<span class="strong"><strong>All</strong></span>), we see the results at each step displayed as the script progresses:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_02_015.jpg" alt="Python graphics in Jupyter"/></div><p>
+</p><p>And finally, we see our plot of the <code class="literal">births</code>, as shown in the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_02_016.jpg" alt="Python graphics in Jupyter"/></div><p>
+</p><p>I was curious what metadata was stored for this script. Looking into the IPYNB file, you can see the expected value for the formula cells.</p><p>The tabular data display of the <code class="literal">DataFrame</code> is stored as HTML-convenient:</p><pre class="programlisting">{ &#xD;
+  "cell_type": "code", &#xD;
+  "execution_count": 43, &#xD;
+  "metadata": { &#xD;
+    "collapsed": false &#xD;
+  }, &#xD;
+  "outputs": [ &#xD;
+    { &#xD;
+      "data": { &#xD;
+        "text/html": [ &#xD;
+          "&lt;div&gt;\n", &#xD;
+            "&lt;table border="1" class="dataframe"&gt;\n", &#xD;
+              "&lt;thead&gt;\n", &#xD;
+                "&lt;tr style="text-align: right;"&gt;\n", &#xD;
+                "&lt;th&gt;&lt;/th&gt;\n", &#xD;
+                "&lt;th&gt;Name&lt;/th&gt;\n", &#xD;
+                "&lt;th&gt;Number&lt;/th&gt;\n", &#xD;
+                "&lt;/tr&gt;\n", &#xD;
+              "&lt;/thead&gt;\n", &#xD;
+              "&lt;tbody&gt;\n", &#xD;
+                "&lt;tr&gt;\n", &#xD;
+                "&lt;th&gt;0&lt;/th&gt;\n", &#xD;
+                "&lt;td&gt;Alice&lt;/td&gt;\n", &#xD;
+                "&lt;td&gt;96&lt;/td&gt;\n", &#xD;
+                "&lt;/tr&gt;\n", &#xD;
+                "&lt;tr&gt;\n", &#xD;
+                "&lt;th&gt;1&lt;/th&gt;\n", &#xD;
+                "&lt;td&gt;Charles&lt;/td&gt;\n", &#xD;
+                "&lt;td&gt;155&lt;/td&gt;\n", &#xD;
+                "&lt;/tr&gt;\n", &#xD;
+                "&lt;tr&gt;\n", &#xD;
+                "&lt;th&gt;2&lt;/th&gt;\n", &#xD;
+                "&lt;td&gt;Diane&lt;/td&gt;\n", &#xD;
+                "&lt;td&gt;66&lt;/td&gt;\n", &#xD;
+                "&lt;/tr&gt;\n", &#xD;
+                "&lt;tr&gt;\n", &#xD;
+                "&lt;th&gt;3&lt;/th&gt;\n", &#xD;
+                "&lt;td&gt;Edward&lt;/td&gt;\n", &#xD;
+                "&lt;td&gt;272&lt;/td&gt;\n", &#xD;
+                "&lt;/tr&gt;\n", &#xD;
+             "&lt;/tbody&gt;\n", &#xD;
+            "&lt;/table&gt;\n", &#xD;
+          "&lt;/div&gt;" &#xD;
+        ], &#xD;
+          "text/plain": [ &#xD;
+           "      Name  Number\n", &#xD;
+           "0    Alice      96\n", &#xD;
+           "1  Charles     155\n", &#xD;
+           "2    Diane      66\n", &#xD;
+           "3   Edward     272" &#xD;
+          ] &#xD;
+      }, &#xD;
+      "execution_count": 43, &#xD;
+      "metadata": {}, &#xD;
+      "output_type": "execute_result" &#xD;
+    } &#xD;
+  ], &#xD;
+(... continued as above) &#xD;
+} &#xD;
+</pre><p>The graphic output cell is stored like this:</p><pre class="programlisting">{ &#xD;
+  "cell_type": "code", &#xD;
+  "execution_count": 27, &#xD;
+  "metadata": { &#xD;
+    "collapsed": false &#xD;
+  }, &#xD;
+  "outputs": [ &#xD;
+    { &#xD;
+      "data": { &#xD;
+        "text/plain": [ &#xD;
+          "&lt;matplotlib.axes._subplots.AxesSubplot at 0x47cf8f0&gt;" &#xD;
+        ] &#xD;
+      }, &#xD;
+    "execution_count": 27, &#xD;
+    "metadata": {}, &#xD;
+    "output_type": "execute_result" &#xD;
+    }, &#xD;
+    { &#xD;
+      "data": { &#xD;
+        "image/png":  &#xD;
+        "&lt;a few hundred lines of hexcodes&gt; &#xD;
+        .../wc/B0RRYEH0EQAAAABJRU5ErkJggg==\n", &#xD;
+        "text/plain": [ &#xD;
+        "&lt;matplotlib.figure.Figure at 0x47d8e30&gt;" &#xD;
+        ] &#xD;
+      }, &#xD;
+      "metadata": {}, &#xD;
+      "output_type": "display_data" &#xD;
+    } &#xD;
+  ], &#xD;
+  "source": [ &#xD;
+    "# plot the data\n", &#xD;
+    "df['Number'].plot()\n" &#xD;
+  ] &#xD;
+} &#xD;
+], (... similar coding as above for the file trailer) &#xD;
+</pre><p>The <code class="literal">"image/png"</code> tag contains a large hex digit string representation of the graphical image displayed on screen (I abbreviated the display in the coding shown). So, the actual generated image is stored in the metadata for the page.</p><p>So, rather than a cache, Jupyter is remembering the output from when each cell was last executed.</p></div></body></html>

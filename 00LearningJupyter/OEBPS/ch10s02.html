@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Our first Spark script</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Our first Spark script"><div class="titlepage"><div><div><h1 class="title"><a id="ch10lvl1sec79"/>Our first Spark script</h1></div></div></div><p>Our first script reads in a text file and sees how much the line lengths add up to:</p><pre class="programlisting">
+<span class="strong"><strong>import pyspark</strong></span>
+<span class="strong"><strong>if not 'sc' in globals():</strong></span>
+<span class="strong"><strong>    sc = pyspark.SparkContext()</strong></span>
+<span class="strong"><strong>lines = sc.textFile("Spark File Words.ipynb")</strong></span>
+<span class="strong"><strong>lineLengths = lines.map(lambda s: len(s))</strong></span>
+<span class="strong"><strong>totalLength = lineLengths.reduce(lambda a, b: a + b) </strong></span>
+<span class="strong"><strong>print(totalLength)</strong></span>
+</pre><p>In the script, we are first initializing Spark-only if we have not done already. Spark will complain if you try to initialize it more than once, so all Spark scripts should have this <code class="literal">if</code> prefix statement.</p><p>The script reads in a text file (the source of this script), takes every line, and computes its length; then it adds all the lengths together.</p><p>A <code class="literal">lambda</code> function is an anonymous (not named) function that takes arguments and returns a value. In the first case, given a string <code class="literal">s</code>, it returns its length.</p><p>A <code class="literal">reduce</code> function takes an argument, applies the second argument to it, replaces the first value with the result, and then proceeds with the rest of the list. In our case, it walks through the line lengths and adds them all up.</p><p>Then, running this in a notebook, we see the following result:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_10_001.jpg" alt="Our first Spark script"/></div><p>
+</p><p>Note that the size of the file for you may be slightly different. Also, the first time you begin the Spark engine (using the <code class="literal">sc = pyspark.SparkContext()</code> line), it may take a while and your script may not complete successfully. If that happens, just try it again.</p></div></body></html>

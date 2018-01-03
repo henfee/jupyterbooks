@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Julia parallel processing</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Julia parallel processing"><div class="titlepage"><div><div><h1 class="title"><a id="ch04lvl1sec35"/>Julia parallel processing</h1></div></div></div><p>An advanced built-in feature of Julia is to use parallel processing in your script. Normally, you can specify the number of processes that you want to use, directly in Julia. However, in Jupyter, you would use the <code class="literal">addproc()</code> function to add an additional process available for use in your script. For example, this small script:</p><pre class="programlisting">
+<span class="strong"><strong>addprocs(1)</strong></span>
+<span class="strong"><strong>srand(111)</strong></span>
+<span class="strong"><strong>r = remotecall(rand, 2, 3, 4)</strong></span>
+<span class="strong"><strong>s = @spawnat 2 1 .+ fetch(r)</strong></span>
+<span class="strong"><strong>fetch(s)</strong></span>
+</pre><p>This example makes a call to <code class="literal">rand</code>, the random number generator with that code executing on the 2<sup>nd</sup> parameter to the function call (process 2), and then passes the remaining arguments to the <code class="literal">rand</code> function there (making <code class="literal">rand</code> generate a 3 x 4 matrix of random numbers). <code class="literal">spawnat</code> is a macro that evaluates the processes mentioned. Then, <code class="literal">fetch</code> accesses the result of the spawned processes.</p><p>We can see the results in the example in Jupyter as shown in the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_04_015.jpg" alt="Julia parallel processing"/></div><p>
+</p></div></body></html>

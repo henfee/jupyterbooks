@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Python random numbers in Jupyter</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Python random numbers in Jupyter"><div class="titlepage"><div><div><h1 class="title"><a id="ch02lvl1sec20"/>Python random numbers in Jupyter</h1></div></div></div><p>For many analyses, we are interested in calculating repeatable results. However, a lot of analysis relies on random numbers being used. In Python, you can set the seed for the random number generator to achieve repeatable results with the <code class="literal">random_seed()</code> function.</p><p>In this example, we simulate rolling a pair of dice and looking at the outcome.</p><p>The script we are using is this:</p><pre class="programlisting">
+<span class="strong"><strong>import pylab</strong></span>
+<span class="strong"><strong>import random</strong></span>
+<span class="strong"><strong>random.seed(113)</strong></span>
+<span class="strong"><strong>samples = 1000</strong></span>
+<span class="strong"><strong>dice = []</strong></span>
+<span class="strong"><strong>for i in range(samples):</strong></span>
+<span class="strong"><strong>    total = random.randint(1,6) + random.randint(1,6)</strong></span>
+<span class="strong"><strong>    dice.append(total)</strong></span>
+<span class="strong"><strong>pylab.hist(dice, bins= pylab.arange(1.5,12.6,1.0))</strong></span>
+<span class="strong"><strong>pylab.show()</strong></span>
+</pre><p>Once we have the script in Jupyter and execute it, we have this result:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_02_017.jpg" alt="Python random numbers in Jupyter"/></div><p>
+</p><p>I had added some more statistics. I'm not sure I would have counted on such a high standard deviation. If we increased the number of samples, this would increase.</p><p>The resulting graph was opened in a new window, much as it would be if you ran this script in another Python development environment:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_02_018.jpg" alt="Python random numbers in Jupyter"/></div><p>
+</p><p>The toolbar at the top of the graphic is extensive, allowing you to manipulate the graphic in many ways.</p></div></body></html>

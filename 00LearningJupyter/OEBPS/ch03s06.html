@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>R forecasting</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="R forecasting"><div class="titlepage"><div><div><h1 class="title"><a id="ch03lvl1sec27"/>R forecasting</h1></div></div></div><p>For this example, we will forecast the Fraser River levels given the data from&#xA0;
+<a class="ulink" href="https://datamarket.com/data/set/22nm/fraser-river-at-hope-1913-1990#!ds=22nm&amp;display=line">https://datamarket.com/data/set/22nm/fraser-river-at-hope-1913-1990#!ds=22nm&amp;display=line</a>
+. I was not able to find a suitable source so I extracted the data by hand from the site into a local file.</p><p>We will be using the R forecast package. You have to add this package to your setup (as described at the start of this chapter).</p><p>The R script we will be using is as follows:</p><pre class="programlisting">
+<span class="strong"><strong>library(forecast)</strong></span>
+<span class="strong"><strong>fraser &lt;- scan("fraser.txt")</strong></span>
+<span class="strong"><strong>plot(fraser)</strong></span>
+<span class="strong"><strong>fraser.ts &lt;- ts(fraser, frequency=12, start=c(1913,3))</strong></span>
+<span class="strong"><strong>fraser.stl = stl(fraser.ts, s.window="periodic")</strong></span>
+<span class="strong"><strong>monthplot(fraser.stl)</strong></span>
+<span class="strong"><strong>seasonplot(fraser.ts)</strong></span>
+</pre><p>The output of interest in this example are the three plots: simple plot, monthly, and computed seasonal.</p><p>The simple plot (using the R <code class="literal">plot</code> command) is like the following screenshot. There is no apparent organization or structure:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_03_013.jpg" alt="R forecasting"/></div><p>
+</p><p>The monthly plot (using the <code class="literal">monthplot</code> command) is like the following screenshot. River flows appear to be very consistent within a month:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_03_014.jpg" alt="R forecasting"/></div><p>
+</p><p>Finally, the seasonal plot&#xA0;shows quite dramatically what we have been trying to forecast, that is, definite seasonality to the river flows:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_03_015.jpg" alt="R forecasting"/></div><p>
+</p></div></body></html>

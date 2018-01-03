@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Node.js decision-tree package</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Node.js decision-tree package"><div class="titlepage"><div><div><h1 class="title"><a id="ch05lvl1sec50"/>Node.js decision-tree package</h1></div></div></div><p>The <code class="literal">decision-tree</code> package is an example of a machine learning package. It is available at 
+<a class="ulink" href="https://www.npmjs.com/package/decision-tree">https://www.npmjs.com/package/decision-tree</a>
+. The package is installed using the following command:</p><pre class="programlisting">
+<span class="strong"><strong>npm install decision-tree</strong></span>
+</pre><p>We need a dataset to use for training/developing our decision tree. I am using the car MPG dataset on this page: 
+<a class="ulink" href="https://alliance.seas.upenn.edu/~cis520/wiki/index.php?n=Lectures.DecisionTrees">https://alliance.seas.upenn.edu/~cis520/wiki/index.php?n=Lectures.DecisionTrees</a>
+. It did not seem to be available directly, so I copied it into Excel and saved it as a local CSV.</p><p>The logic for machine learning is very similar:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">Load our dataset</li><li class="listitem" style="list-style-type: disc">Split into a training set and a testing set</li><li class="listitem" style="list-style-type: disc">Use the training set to develop our model</li><li class="listitem" style="list-style-type: disc">Test the mode on the test set.</li></ul></div><div class="note" title="Note" style=""><div class="inner"><h3 class="title"><a id="tip21"/>Tip</h3><p>Typically, you might use two-thirds of your data for training and one-third for testing.</p></div></div><p>Using the <code class="literal">decision-tree</code> package and the car MPG dataset we would have a script similar to the following:</p><pre class="programlisting">
+<span class="strong"><strong>//Import the modules</strong></span>
+<span class="strong"><strong>var DecisionTree = require('decision-tree');</strong></span>
+<span class="strong"><strong>var fs = require("fs");</strong></span>
+<span class="strong"><strong>var d3 = require("d3");</strong></span>
+<span class="strong"><strong>var util = require('util');</strong></span>
+<span class="strong"><strong>//read in the car/mpg file</strong></span>
+<span class="strong"><strong>fs.readFile("/Users/dtoomey/car-mpg.csv", "utf8", function(error, data)
+    {</strong></span>
+<span class="strong"><strong>    //parse out the csv into a dataset</strong></span>
+<span class="strong"><strong>    var dataset = d3.tsv.parse(data);</strong></span>
+<span class="strong"><strong>    //display on screen - just for debugging</strong></span>
+<span class="strong"><strong>    //console.log(JSON.stringify(dataset));</strong></span>
+<span class="strong"><strong>    var rows = dataset.length;</strong></span>
+<span class="strong"><strong>    console.log("rows = " + rows);</strong></span>
+<span class="strong"><strong>    var training_size = rows * 2 / 3;</strong></span>
+<span class="strong"><strong>    console.log("training_size = " + training_size);</strong></span>
+<span class="strong"><strong>    var test_size = rows - training_size;</strong></span>
+<span class="strong"><strong>    console.log("test_size = " + test_size);</strong></span>
+<span class="strong"><strong>    //Prepare training dataset</strong></span>
+<span class="strong"><strong>    var training_data = dataset.slice(1, training_size);</strong></span>
+<span class="strong"><strong>    //Prepare test dataset</strong></span>
+<span class="strong"><strong>    var test_data = dataset.slice(training_size, rows);</strong></span>
+<span class="strong"><strong>    //Setup Target Class used for prediction</strong></span>
+<span class="strong"><strong>    var class_name = "mpg";</strong></span>
+<span class="strong"><strong>    //Setup Features to be used by decision tree</strong></span>
+<span class="strong"><strong>    var features = ["cylinders","displacement","horsepower",
+        "weight","acceleration", "modelyear", "maker"];</strong></span>
+<span class="strong"><strong>    //Create decision tree and train model</strong></span>
+<span class="strong"><strong>    var dt = new DecisionTree(training_data, class_name, features);</strong></span>
+<span class="strong"><strong>    console.log("Decision Tree is " + util.inspect
+        (dt, {showHidden: false, depth: null}));</strong></span>
+<span class="strong"><strong>    //Predict class label for an instance</strong></span>
+<span class="strong"><strong>    var predicted_class = dt.predict({</strong></span>
+<span class="strong"><strong>        cylinders: 8,</strong></span>
+<span class="strong"><strong>        displacement: 400,</strong></span>
+<span class="strong"><strong>        horsepower: 200,</strong></span>
+<span class="strong"><strong>        weight: 4000,</strong></span>
+<span class="strong"><strong>        acceleration: 12,</strong></span>
+<span class="strong"><strong>        modelyear: 70,</strong></span>
+<span class="strong"><strong>        maker: "US"</strong></span>
+<span class="strong"><strong>    });</strong></span>
+<span class="strong"><strong>    console.log("Predicted Class is " + util.inspect
+        (predicted_class, {showHidden: false, depth: null}));</strong></span>
+<span class="strong"><strong>    //Evaluate model on a dataset</strong></span>
+<span class="strong"><strong>    var accuracy = dt.evaluate(test_data);</strong></span>
+<span class="strong"><strong>    console.log("Accuracy is " + accuracy);</strong></span>
+<span class="strong"><strong>    //Export underlying model for visualization or inspection</strong></span>
+<span class="strong"><strong>    var treeModel = dt.toJSON();</strong></span>
+<span class="strong"><strong>    console.log("Decision Tree JSON is " +
+        util.inspect(treeModel, {showHidden: false, depth: null}));</strong></span>
+<span class="strong"><strong>});</strong></span>
+</pre><p>There is wide use of console.log to display progressive information about the processing that is occurring. I am using the <code class="literal">util()</code> function further, to display members of objects in use.</p><div class="note" title="Note" style=""><div class="inner"><h3 class="title"><a id="note22"/>Note</h3><p>The packages must also be installed using <code class="literal">npm</code>.</p></div></div><p>If we run this in a notebook, we end up with the results shown in the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_05_016.jpg" alt="Node.js decision-tree package"/></div><p>
+</p><p>We arrive at a model for determining whether the MPG for a vehicle is acceptable or not, based on the vehicle characteristics. In this case, we have a <span class="emphasis"><em>bad</em></span> predictor as noted in the results.</p></div></body></html>

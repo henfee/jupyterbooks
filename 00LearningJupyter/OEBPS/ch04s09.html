@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Julia regular expressions</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Julia regular expressions"><div class="titlepage"><div><div><h1 class="title"><a id="ch04lvl1sec37"/>Julia regular expressions</h1></div></div></div><p>Julia has built-in regular expression handling-as do most modern programming languages. There is no need for a <code class="literal">using</code> statement, as regular expressions are basic features of strings in Julia.</p><p>We could have a small script that verifies whether a string matches a phone number, for example:</p><pre class="programlisting">
+<span class="strong"><strong>ismatch(r"^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$", "(781)244-1212")</strong></span>
+<span class="strong"><strong>ismatch(r"^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$", "-781-244-1212")</strong></span>
+</pre><p>When run in Jupyter, we see the following results, that is the first number is conformant to the format and the second is not:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_04_017.jpg" alt="Julia regular expressions"/></div><p>
+</p></div></body></html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Basic Julia in Jupyter</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Basic Julia in Jupyter"><div class="titlepage"><div><div><h1 class="title"><a id="ch04lvl1sec30"/>Basic Julia in Jupyter</h1></div></div></div><p>In this example we will use the Iris dataset for some standard analysis. So, start a new Julia notebook and call it <code class="literal">Julia Iris</code>. We can enter a small script to see how the steps progress for a Julia script.</p><p>This script uses another package for plotting, <code class="literal">Gadfly</code>. You would have to go through similar steps as before to install the package before operating the script.</p><p>Enter the following script into separate cells of your notebook:</p><pre class="programlisting">
+<span class="strong"><strong>using RDatasets, DataFrames, Gadfly</strong></span>
+<span class="strong"><strong>set_default_plot_size(5inch, 5inch/golden);</strong></span>
+<span class="strong"><strong>plot(dataset("datasets","iris"), x="SepalWidth",&#xD;
+        y="SepalLength", color="Species")</strong></span>
+</pre><p>
+<code class="literal">RDataSets</code> is a library containing several of the commonly used R datasets, such as Iris. This is a simple script-we define our libraries that we are going to use, set the size of the plot area, and plot out the Iris data points (color coded to species).</p><p>So, you would end up with a starting screen that looks like the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/B05207_4_4.jpg" alt="Basic Julia in Jupyter"/></div><p>
+</p><p>We should take note of a few aspects of the Julia notebook view:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">We have the Julia logo (the three colored circles) in the upper-right corner. You will have seen this logo running in other Julia installations (as we saw earlier when we ran the Julia command line).</li><li class="listitem" style="list-style-type: disc">The circle to the right of the Julia logo is a busy indicator. When your script starts, the title of the table says <span class="strong"><strong>Busy</strong></span> as Julia is starting. When your script is running, the circle is filled in black. When it is not running, it is empty.</li><li class="listitem" style="list-style-type: disc">The rest of the menu items are the same as before.<div class="note" title="Note" style=""><div class="inner"><h3 class="title"><a id="note15"/>Note</h3><p>On my Windows machine, it took quite a while for the Julia notebook to start the first time. The <span class="strong"><strong>Kernel starting, please wait...</strong></span> message was displayed for several minutes.</p></div></div></li></ul></div><p>If you run the script (using the <span class="strong"><strong>Cell</strong></span> | <span class="strong"><strong>Run All</strong></span> menu command), your output should look like the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_04_007.jpg" alt="Basic Julia in Jupyter"/></div><p>
+</p><p>I noticed that if you hover the mouse over a graphic, you get grid lines displayed and a slide bar to adjust the zoom level (as shown in the upper-right part of the preceding screenshot).</p><p>So, just as if you ran the script in the Julia interpreter, you get your output (with the numerical prefix). Jupyter has counted the statements so we have incremental numbering of the cells. Jupyter has not done anything special to print out variables or the like.</p><p>We started the server, created a new notebook, and saved it as <code class="literal">Julia Iris</code>. If we open the IPYNB file on disk (using a text editor), we can see the following:</p><pre class="programlisting">{ &#xD;
+  "cells": [ &#xD;
+    ...&lt;similar to previously displayed&gt; &#xD;
+  ], &#xD;
+  "metadata": { &#xD;
+    "kernelspec": { &#xD;
+      "display_name": "Julia 0.4.5", &#xD;
+      "language": "julia", &#xD;
+      "name": "julia-0.4" &#xD;
+    }, &#xD;
+    "language_info": { &#xD;
+      "file_extension": ".jl", &#xD;
+      "mimetype": "application/julia", &#xD;
+      "name": "julia", &#xD;
+      "version": "0.4.5" &#xD;
+    } &#xD;
+  ...&lt;omitted&gt; &#xD;
+  } &#xD;
+</pre><p>This is a little different than what we saw in the previous chapters with other notebook language coding. Particularly, the metadata clearly targets the script cells to be Julia script.</p></div></body></html>

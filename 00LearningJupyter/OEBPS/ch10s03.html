@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Spark word count</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Spark word count"><div class="titlepage"><div><div><h1 class="title"><a id="ch10lvl1sec80"/>Spark word count</h1></div></div></div><p>Now that we have seen some of the functionality, let's explore further. We can use a similar script to count the word occurrences in a file, as follows:</p><pre class="programlisting">
+<span class="strong"><strong>import pyspark</strong></span>
+<span class="strong"><strong>if not 'sc' in globals():</strong></span>
+<span class="strong"><strong>    sc = pyspark.SparkContext()</strong></span>
+<span class="strong"><strong>text_file = sc.textFile("Spark File Words.ipynb")</strong></span>
+<span class="strong"><strong>counts = text_file.flatMap(lambda line: line.split(" ")) \</strong></span>
+<span class="strong"><strong>             .map(lambda word: (word, 1)) \</strong></span>
+<span class="strong"><strong>             .reduceByKey(lambda a, b: a + b)</strong></span>
+<span class="strong"><strong>for x in counts.collect():</strong></span>
+<span class="strong"><strong>    print x</strong></span>
+</pre><p>We have the same preamble to the coding. Then we load the text file into memory.</p><p>Once the file is loaded, we split each line into words. Use a <code class="literal">lambda</code> function to tick off each occurrence of a word. The code is truly creating a new record for each word occurrence. If a word appears in the stream, a record with the count of <code class="literal">1</code> is added for that word and for every other instance the word appears, new records with the same count of <code class="literal">1</code>&#xA0;are added. The idea is that this process could be split over multiple processors, where each processor generates these low-level information bits. We are not concerned with optimizing this process at all.</p><p>Once we have all of these records, we reduce/summarize the record set according to the word occurrences mentioned.</p><p>The <code class="literal">counts</code> object is called a&#xA0;<span class="strong"><strong>Resilient Distributed Dataset</strong></span> (<span class="strong"><strong>RDD</strong></span>) in Spark. It is resilient as care is taken to persist the dataset. The RDD is distributed as it can be manipulated by all nodes in the operating cluster. And of course, it is a dataset consisting of a variety of data items.</p><p>The last <code class="literal">for</code> loop runs a <code class="literal">collect()</code> against the RDD. As mentioned, this RDD could be distributed amongst many nodes. The <code class="literal">collect()</code> function pulls all copies of the RDD into one location. Then we loop through each record.</p><p>When we run this in Jupyter, we see something akin to this display:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_10_002.jpg" alt="Spark word count"/></div><p>
+</p><p>The listing is abbreviated as the list of words continues for some time. Curiously, the word splitting logic in Spark does not appear to work very well! Some of the results are not words, such as the first entry-the empty string.</p></div></body></html>

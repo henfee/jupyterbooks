@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<ncx:ncx xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+  <ncx:head>
+    <ncx:meta name="cover" content="cover"/>
+    <ncx:meta name="dtb:depth" content="-1"/>
+    <ncx:meta name="dtb:totalPageCount" content="0"/>
+    <ncx:meta name="dtb:maxPageNumber" content="0"/>
+    <ncx:meta name="dtb:uid" content="9781785884870"/>
+  </ncx:head>
+  <ncx:docTitle>
+    <ncx:text>Learning Jupyter</ncx:text>
+  </ncx:docTitle>
+  <ncx:navMap>
+    <ncx:navPoint id="id286448482" playOrder="1">
+      <ncx:navLabel>
+        <ncx:text>Learning Jupyter</ncx:text>
+      </ncx:navLabel>
+      <ncx:content src="index.html"/>
+      <ncx:navPoint id="id286448498" playOrder="2">
+        <ncx:navLabel>
+          <ncx:text>Learning Jupyter</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="pr01.html"/>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286691994" playOrder="3">
+        <ncx:navLabel>
+          <ncx:text>Credits</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="pr02.html"/>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286697330" playOrder="4">
+        <ncx:navLabel>
+          <ncx:text>About the Author</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="pr03.html"/>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286697348" playOrder="5">
+        <ncx:navLabel>
+          <ncx:text>About the Reviewer</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="pr04.html"/>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286697363" playOrder="6">
+        <ncx:navLabel>
+          <ncx:text>www.PacktPub.com</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="pr05.html"/>
+        <ncx:navPoint id="id286697428" playOrder="7">
+          <ncx:navLabel>
+            <ncx:text>Why subscribe?</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="pr05.html#pf06lvl2sec0"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286697456" playOrder="8">
+        <ncx:navLabel>
+          <ncx:text>Preface</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="pr06.html"/>
+        <ncx:navPoint id="id286697468" playOrder="9">
+          <ncx:navLabel>
+            <ncx:text>What this book covers</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="pr06.html#pf07lvl1sec1"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286697601" playOrder="10">
+          <ncx:navLabel>
+            <ncx:text>What you need for this book</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="pr06s02.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286697611" playOrder="11">
+          <ncx:navLabel>
+            <ncx:text>Who this book is for</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="pr06s03.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286697622" playOrder="12">
+          <ncx:navLabel>
+            <ncx:text>Conventions</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="pr06s04.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286697708" playOrder="13">
+          <ncx:navLabel>
+            <ncx:text>Reader feedback</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="pr06s05.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286697761" playOrder="14">
+          <ncx:navLabel>
+            <ncx:text>Customer support</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="pr06s06.html"/>
+          <ncx:navPoint id="id286697771" playOrder="15">
+            <ncx:navLabel>
+              <ncx:text>Downloading the example code</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="pr06s06.html#pf07lvl2sec1"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286697924" playOrder="16">
+            <ncx:navLabel>
+              <ncx:text>Downloading the color images of this book</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="pr06s06.html#pf07lvl2sec2"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286697941" playOrder="17">
+            <ncx:navLabel>
+              <ncx:text>Errata</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="pr06s06.html#pf07lvl2sec3"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286697976" playOrder="18">
+            <ncx:navLabel>
+              <ncx:text>Piracy</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="pr06s06.html#pf07lvl2sec4"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286698028" playOrder="19">
+            <ncx:navLabel>
+              <ncx:text>Questions</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="pr06s06.html#pf07lvl2sec5"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286698041" playOrder="20">
+        <ncx:navLabel>
+          <ncx:text>1. Introduction to Jupyter</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch01.html"/>
+        <ncx:navPoint id="id286698106" playOrder="21">
+          <ncx:navLabel>
+            <ncx:text>First look at Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01.html#ch01lvl1sec7"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286722902" playOrder="22">
+          <ncx:navLabel>
+            <ncx:text>Installing Jupyter on Windows</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01s02.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286723225" playOrder="23">
+          <ncx:navLabel>
+            <ncx:text>Installing Jupyter on Mac</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01s03.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286723605" playOrder="24">
+          <ncx:navLabel>
+            <ncx:text>Notebook structure</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01s04.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286723662" playOrder="25">
+          <ncx:navLabel>
+            <ncx:text>Notebook workflow</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01s05.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286723696" playOrder="26">
+          <ncx:navLabel>
+            <ncx:text>Basic notebook operations</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01s06.html"/>
+          <ncx:navPoint id="id286723705" playOrder="27">
+            <ncx:navLabel>
+              <ncx:text>File operations</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch01s06.html#ch01lvl2sec6"/>
+            <ncx:navPoint id="id286723756" playOrder="28">
+              <ncx:navLabel>
+                <ncx:text>Duplicate</ncx:text>
+              </ncx:navLabel>
+              <ncx:content src="ch01s06.html#ch01lvl3sec0"/>
+            </ncx:navPoint>
+            <ncx:navPoint id="id286723862" playOrder="29">
+              <ncx:navLabel>
+                <ncx:text>Rename</ncx:text>
+              </ncx:navLabel>
+              <ncx:content src="ch01s06.html#ch01lvl3sec1"/>
+            </ncx:navPoint>
+            <ncx:navPoint id="id286723893" playOrder="30">
+              <ncx:navLabel>
+                <ncx:text>Delete</ncx:text>
+              </ncx:navLabel>
+              <ncx:content src="ch01s06.html#ch01lvl3sec2"/>
+            </ncx:navPoint>
+            <ncx:navPoint id="id286723943" playOrder="31">
+              <ncx:navLabel>
+                <ncx:text>Upload</ncx:text>
+              </ncx:navLabel>
+              <ncx:content src="ch01s06.html#ch01lvl3sec3"/>
+            </ncx:navPoint>
+            <ncx:navPoint id="id286723974" playOrder="32">
+              <ncx:navLabel>
+                <ncx:text>New text file</ncx:text>
+              </ncx:navLabel>
+              <ncx:content src="ch01s06.html#ch01lvl3sec4"/>
+            </ncx:navPoint>
+            <ncx:navPoint id="id286724316" playOrder="33">
+              <ncx:navLabel>
+                <ncx:text>New folder</ncx:text>
+              </ncx:navLabel>
+              <ncx:content src="ch01s06.html#ch01lvl3sec5"/>
+            </ncx:navPoint>
+            <ncx:navPoint id="id286724334" playOrder="34">
+              <ncx:navLabel>
+                <ncx:text>New Python 2</ncx:text>
+              </ncx:navLabel>
+              <ncx:content src="ch01s06.html#ch01lvl3sec6"/>
+            </ncx:navPoint>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286751721" playOrder="35">
+          <ncx:navLabel>
+            <ncx:text>Security in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01s07.html"/>
+          <ncx:navPoint id="id286751833" playOrder="36">
+            <ncx:navLabel>
+              <ncx:text>Security digest</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch01s07.html#ch01lvl2sec7"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286751863" playOrder="37">
+            <ncx:navLabel>
+              <ncx:text>Trust options</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch01s07.html#ch01lvl2sec8"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286751901" playOrder="38">
+          <ncx:navLabel>
+            <ncx:text>Configuration options for Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01s08.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286751998" playOrder="39">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch01s09.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286752013" playOrder="40">
+        <ncx:navLabel>
+          <ncx:text>2. Jupyter Python Scripting</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch02.html"/>
+        <ncx:navPoint id="id286752089" playOrder="41">
+          <ncx:navLabel>
+            <ncx:text>Basic Python in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch02.html#ch02lvl1sec16"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286752466" playOrder="42">
+          <ncx:navLabel>
+            <ncx:text>Python data access in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch02s02.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286752653" playOrder="43">
+          <ncx:navLabel>
+            <ncx:text>Python pandas in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch02s03.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286752822" playOrder="44">
+          <ncx:navLabel>
+            <ncx:text>Python graphics in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch02s04.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286753066" playOrder="45">
+          <ncx:navLabel>
+            <ncx:text>Python random numbers in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch02s05.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286753216" playOrder="46">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch02s06.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286753230" playOrder="47">
+        <ncx:navLabel>
+          <ncx:text>3. Jupyter R Scripting</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch03.html"/>
+        <ncx:navPoint id="id286753275" playOrder="48">
+          <ncx:navLabel>
+            <ncx:text>Adding R scripting to your installation</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch03.html#ch03lvl1sec22"/>
+          <ncx:navPoint id="id286753286" playOrder="49">
+            <ncx:navLabel>
+              <ncx:text>Adding R scripts to Jupyter on a Mac</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch03.html#ch03lvl2sec9"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286753573" playOrder="50">
+            <ncx:navLabel>
+              <ncx:text>Adding R scripts to Jupyter on Windows</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch03.html#ch03lvl2sec10"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286753959" playOrder="51">
+            <ncx:navLabel>
+              <ncx:text>Adding R packages to Jupyter</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch03.html#ch03lvl2sec11"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286754022" playOrder="52">
+            <ncx:navLabel>
+              <ncx:text>R limitations in Jupyter</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch03.html#ch03lvl2sec12"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286754051" playOrder="53">
+            <ncx:navLabel>
+              <ncx:text>After adding R scripts to Jupyter</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch03.html#ch03lvl2sec13"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286754188" playOrder="54">
+          <ncx:navLabel>
+            <ncx:text>Basic R in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch03s02.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286754408" playOrder="55">
+          <ncx:navLabel>
+            <ncx:text>R dataset access</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch03s03.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286754500" playOrder="56">
+          <ncx:navLabel>
+            <ncx:text>R visualizations in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch03s04.html"/>
+          <ncx:navPoint id="id286754509" playOrder="57">
+            <ncx:navLabel>
+              <ncx:text>R 3D graphics in Jupyter</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch03s04.html#ch03lvl2sec14"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286754630" playOrder="58">
+            <ncx:navLabel>
+              <ncx:text>R 3D scatterplot in Jupyter</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch03s04.html#ch03lvl2sec15"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286754747" playOrder="59">
+          <ncx:navLabel>
+            <ncx:text>R cluster analysis</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch03s05.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286755034" playOrder="60">
+          <ncx:navLabel>
+            <ncx:text>R forecasting</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch03s06.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286755200" playOrder="61">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch03s07.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286755218" playOrder="62">
+        <ncx:navLabel>
+          <ncx:text>4. Jupyter Julia Scripting</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch04.html"/>
+        <ncx:navPoint id="id286755281" playOrder="63">
+          <ncx:navLabel>
+            <ncx:text>Adding Julia scripting to your installation</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04.html#ch04lvl1sec29"/>
+          <ncx:navPoint id="id286755291" playOrder="64">
+            <ncx:navLabel>
+              <ncx:text>Adding Julia scripts to Jupyter on a Mac</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch04.html#ch04lvl2sec16"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286755324" playOrder="65">
+            <ncx:navLabel>
+              <ncx:text>Adding Julia scripts to Jupyter on Windows</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch04.html#ch04lvl2sec17"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286755501" playOrder="66">
+            <ncx:navLabel>
+              <ncx:text>Adding Julia packages to Jupyter</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch04.html#ch04lvl2sec18"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286755590" playOrder="67">
+          <ncx:navLabel>
+            <ncx:text>Basic Julia in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s02.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286755783" playOrder="68">
+          <ncx:navLabel>
+            <ncx:text>Julia limitations in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s03.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286755838" playOrder="69">
+          <ncx:navLabel>
+            <ncx:text>Standard Julia capabilities</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s04.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286755899" playOrder="70">
+          <ncx:navLabel>
+            <ncx:text>Julia visualizations in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s05.html"/>
+          <ncx:navPoint id="id286755941" playOrder="71">
+            <ncx:navLabel>
+              <ncx:text>Julia Gadfly scatterplot</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch04s05.html#ch04lvl2sec19"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286756045" playOrder="72">
+            <ncx:navLabel>
+              <ncx:text>Julia Gadfly histogram</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch04s05.html#ch04lvl2sec20"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286756098" playOrder="73">
+            <ncx:navLabel>
+              <ncx:text>Julia Winston plotting</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch04s05.html#ch04lvl2sec21"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286756184" playOrder="74">
+          <ncx:navLabel>
+            <ncx:text>Julia Vega plotting</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s06.html"/>
+          <ncx:navPoint id="id286756323" playOrder="75">
+            <ncx:navLabel>
+              <ncx:text>Julia PyPlot plotting</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch04s06.html#ch04lvl2sec22"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286756406" playOrder="76">
+          <ncx:navLabel>
+            <ncx:text>Julia parallel processing</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s07.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286756523" playOrder="77">
+          <ncx:navLabel>
+            <ncx:text>Julia control flow</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s08.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286756636" playOrder="78">
+          <ncx:navLabel>
+            <ncx:text>Julia regular expressions</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s09.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286756688" playOrder="79">
+          <ncx:navLabel>
+            <ncx:text>Julia unit testing</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s10.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286756903" playOrder="80">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch04s11.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286756931" playOrder="81">
+        <ncx:navLabel>
+          <ncx:text>5. Jupyter JavaScript Coding</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch05.html"/>
+        <ncx:navPoint id="id286457371" playOrder="82">
+          <ncx:navLabel>
+            <ncx:text>Adding JavaScript scripting to your installation</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05.html#ch05lvl1sec40"/>
+          <ncx:navPoint id="id286457381" playOrder="83">
+            <ncx:navLabel>
+              <ncx:text>Adding JavaScript scripts to Jupyter on Mac</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch05.html#ch05lvl2sec23"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286757203" playOrder="84">
+            <ncx:navLabel>
+              <ncx:text>Adding JavaScript scripts to Jupyter on Windows</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch05.html#ch05lvl2sec24"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286757227" playOrder="85">
+          <ncx:navLabel>
+            <ncx:text>JavaScript Hello World Jupyter Notebook</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s02.html"/>
+          <ncx:navPoint id="id286757334" playOrder="86">
+            <ncx:navLabel>
+              <ncx:text>Adding JavaScript packages to Jupyter</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch05s02.html#ch05lvl2sec25"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286757373" playOrder="87">
+          <ncx:navLabel>
+            <ncx:text>Basic JavaScript in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s03.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286757384" playOrder="88">
+          <ncx:navLabel>
+            <ncx:text>JavaScript limitations in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s04.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286757398" playOrder="89">
+          <ncx:navLabel>
+            <ncx:text>Node.js d3 package</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s05.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286757664" playOrder="90">
+          <ncx:navLabel>
+            <ncx:text>Node.js stats-analysis package</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s06.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286757834" playOrder="91">
+          <ncx:navLabel>
+            <ncx:text>Node.js JSON handling</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s07.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286758073" playOrder="92">
+          <ncx:navLabel>
+            <ncx:text>Node.js canvas package</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s08.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286758290" playOrder="93">
+          <ncx:navLabel>
+            <ncx:text>Node.js plotly package</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s09.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286758514" playOrder="94">
+          <ncx:navLabel>
+            <ncx:text>Node.js asynchronous threads</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s10.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286758718" playOrder="95">
+          <ncx:navLabel>
+            <ncx:text>Node.js decision-tree package</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s11.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286759153" playOrder="96">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch05s12.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286759180" playOrder="97">
+        <ncx:navLabel>
+          <ncx:text>6. Interactive Widgets</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch06.html"/>
+        <ncx:navPoint id="id286759398" playOrder="98">
+          <ncx:navLabel>
+            <ncx:text>Installing widgets</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch06.html#ch06lvl1sec52"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286759489" playOrder="99">
+          <ncx:navLabel>
+            <ncx:text>Widget basics</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch06s02.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286759522" playOrder="100">
+          <ncx:navLabel>
+            <ncx:text>Interact widget</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch06s03.html"/>
+          <ncx:navPoint id="id286759537" playOrder="101">
+            <ncx:navLabel>
+              <ncx:text>Interact widget slider</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s03.html#ch06lvl2sec26"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286759654" playOrder="102">
+            <ncx:navLabel>
+              <ncx:text>Interact widget checkbox</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s03.html#ch06lvl2sec27"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286759717" playOrder="103">
+            <ncx:navLabel>
+              <ncx:text>Interact widget text box</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s03.html#ch06lvl2sec28"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286759776" playOrder="104">
+            <ncx:navLabel>
+              <ncx:text>Interact dropdown</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s03.html#ch06lvl2sec29"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286759923" playOrder="105">
+          <ncx:navLabel>
+            <ncx:text>Interactive widget</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch06s04.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286760017" playOrder="106">
+          <ncx:navLabel>
+            <ncx:text>Widgets</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch06s05.html"/>
+          <ncx:navPoint id="id286760030" playOrder="107">
+            <ncx:navLabel>
+              <ncx:text>Progress bar widget</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s05.html#ch06lvl2sec30"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286760134" playOrder="108">
+            <ncx:navLabel>
+              <ncx:text>Listbox widget</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s05.html#ch06lvl2sec31"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286760221" playOrder="109">
+            <ncx:navLabel>
+              <ncx:text>Text widget</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s05.html#ch06lvl2sec32"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286760433" playOrder="110">
+            <ncx:navLabel>
+              <ncx:text>Button widget</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s05.html#ch06lvl2sec33"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286760612" playOrder="111">
+            <ncx:navLabel>
+              <ncx:text>Widget properties</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s05.html#ch06lvl2sec34"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286761114" playOrder="112">
+            <ncx:navLabel>
+              <ncx:text>Adjusting properties</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s05.html#ch06lvl2sec35"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286761178" playOrder="113">
+            <ncx:navLabel>
+              <ncx:text>Widget events</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s05.html#ch06lvl2sec36"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286761275" playOrder="114">
+            <ncx:navLabel>
+              <ncx:text>Widget containers</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch06s05.html#ch06lvl2sec37"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286761513" playOrder="115">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch06s06.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286761528" playOrder="116">
+        <ncx:navLabel>
+          <ncx:text>7. Sharing and Converting Jupyter Notebooks</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch07.html"/>
+        <ncx:navPoint id="id286761560" playOrder="117">
+          <ncx:navLabel>
+            <ncx:text>Sharing notebooks</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch07.html#ch07lvl1sec58"/>
+          <ncx:navPoint id="id286761582" playOrder="118">
+            <ncx:navLabel>
+              <ncx:text>Sharing notebooks on a notebook server</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07.html#ch07lvl2sec38"/>
+            <ncx:navPoint id="id286761970" playOrder="119">
+              <ncx:navLabel>
+                <ncx:text>Encrypted sharing notebooks on a notebook server</ncx:text>
+              </ncx:navLabel>
+              <ncx:content src="ch07.html#ch07lvl3sec7"/>
+            </ncx:navPoint>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286761991" playOrder="120">
+            <ncx:navLabel>
+              <ncx:text>Sharing notebooks on a web server</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07.html#ch07lvl2sec39"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286762017" playOrder="121">
+            <ncx:navLabel>
+              <ncx:text>Sharing notebooks through Docker</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07.html#ch07lvl2sec40"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286762115" playOrder="122">
+            <ncx:navLabel>
+              <ncx:text>Sharing notebooks on a public server</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07.html#ch07lvl2sec41"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286762354" playOrder="123">
+          <ncx:navLabel>
+            <ncx:text>Converting notebooks</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch07s02.html"/>
+          <ncx:navPoint id="id286762610" playOrder="124">
+            <ncx:navLabel>
+              <ncx:text>Notebook format</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07s02.html#ch07lvl2sec42"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286762627" playOrder="125">
+            <ncx:navLabel>
+              <ncx:text>JavaScript format</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07s02.html#ch07lvl2sec43"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286762725" playOrder="126">
+            <ncx:navLabel>
+              <ncx:text>HTML format</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07s02.html#ch07lvl2sec44"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286762770" playOrder="127">
+            <ncx:navLabel>
+              <ncx:text>Markdown format</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07s02.html#ch07lvl2sec45"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286762851" playOrder="128">
+            <ncx:navLabel>
+              <ncx:text>reStructuredText format</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07s02.html#ch07lvl2sec46"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286762900" playOrder="129">
+            <ncx:navLabel>
+              <ncx:text>PDF format</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch07s02.html#ch07lvl2sec47"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286762985" playOrder="130">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch07s03.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286763001" playOrder="131">
+        <ncx:navLabel>
+          <ncx:text>8. Multiuser Jupyter Notebooks</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch08.html"/>
+        <ncx:navPoint id="id286763046" playOrder="132">
+          <ncx:navLabel>
+            <ncx:text>Sample interactive notebook</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch08.html#ch08lvl1sec61"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286763171" playOrder="133">
+          <ncx:navLabel>
+            <ncx:text>JupyterHub</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch08s02.html"/>
+          <ncx:navPoint id="id286763184" playOrder="134">
+            <ncx:navLabel>
+              <ncx:text>Installation</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch08s02.html#ch08lvl2sec48"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286763539" playOrder="135">
+            <ncx:navLabel>
+              <ncx:text>Operation</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch08s02.html#ch08lvl2sec49"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286764085" playOrder="136">
+            <ncx:navLabel>
+              <ncx:text>Continuing with operations</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch08s02.html#ch08lvl2sec50"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286764389" playOrder="137">
+            <ncx:navLabel>
+              <ncx:text>JupyterHub summary</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch08s02.html#ch08lvl2sec51"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286764401" playOrder="138">
+          <ncx:navLabel>
+            <ncx:text>Docker</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch08s03.html"/>
+          <ncx:navPoint id="id286764422" playOrder="139">
+            <ncx:navLabel>
+              <ncx:text>Installation</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch08s03.html#ch08lvl2sec52"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286764446" playOrder="140">
+            <ncx:navLabel>
+              <ncx:text>Starting Docker</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch08s03.html#ch08lvl2sec53"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286764634" playOrder="141">
+            <ncx:navLabel>
+              <ncx:text>Building your Jupyter image for Docker</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch08s03.html#ch08lvl2sec54"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286764986" playOrder="142">
+            <ncx:navLabel>
+              <ncx:text>Docker summary</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch08s03.html#ch08lvl2sec55"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286764999" playOrder="143">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch08s04.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286765019" playOrder="144">
+        <ncx:navLabel>
+          <ncx:text>9. Jupyter Scala</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch09.html"/>
+        <ncx:navPoint id="id286765047" playOrder="145">
+          <ncx:navLabel>
+            <ncx:text>Installing the Scala kernel</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09.html#ch09lvl1sec65"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286765366" playOrder="146">
+          <ncx:navLabel>
+            <ncx:text>Scala data access in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s02.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286765561" playOrder="147">
+          <ncx:navLabel>
+            <ncx:text>Scala array operations</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s03.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286765777" playOrder="148">
+          <ncx:navLabel>
+            <ncx:text>Scala random numbers in Jupyter</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s04.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286765908" playOrder="149">
+          <ncx:navLabel>
+            <ncx:text>Scala closures</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s05.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286766004" playOrder="150">
+          <ncx:navLabel>
+            <ncx:text>Scala higher-order functions</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s06.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286766093" playOrder="151">
+          <ncx:navLabel>
+            <ncx:text>Scala pattern matching</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s07.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286766192" playOrder="152">
+          <ncx:navLabel>
+            <ncx:text>Scala case classes</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s08.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286766382" playOrder="153">
+          <ncx:navLabel>
+            <ncx:text>Scala immutability</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s09.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286766474" playOrder="154">
+          <ncx:navLabel>
+            <ncx:text>Scala collections</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s10.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286766608" playOrder="155">
+          <ncx:navLabel>
+            <ncx:text>Named arguments</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s11.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286766669" playOrder="156">
+          <ncx:navLabel>
+            <ncx:text>Scala traits</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s12.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286766820" playOrder="157">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch09s13.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+      <ncx:navPoint id="id286766835" playOrder="158">
+        <ncx:navLabel>
+          <ncx:text>10. Jupyter and Big Data</ncx:text>
+        </ncx:navLabel>
+        <ncx:content src="ch10.html"/>
+        <ncx:navPoint id="id286766862" playOrder="159">
+          <ncx:navLabel>
+            <ncx:text>Apache Spark</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10.html#ch10lvl1sec78"/>
+          <ncx:navPoint id="id286766925" playOrder="160">
+            <ncx:navLabel>
+              <ncx:text>Mac installation</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch10.html#ch10lvl2sec56"/>
+          </ncx:navPoint>
+          <ncx:navPoint id="id286767091" playOrder="161">
+            <ncx:navLabel>
+              <ncx:text>Windows installation</ncx:text>
+            </ncx:navLabel>
+            <ncx:content src="ch10.html#ch10lvl2sec57"/>
+          </ncx:navPoint>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286767203" playOrder="162">
+          <ncx:navLabel>
+            <ncx:text>Our first Spark script</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s02.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286767303" playOrder="163">
+          <ncx:navLabel>
+            <ncx:text>Spark word count</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s03.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286767499" playOrder="164">
+          <ncx:navLabel>
+            <ncx:text>Sorted word count</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s04.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286767586" playOrder="165">
+          <ncx:navLabel>
+            <ncx:text>Estimate Pi</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s05.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286767789" playOrder="166">
+          <ncx:navLabel>
+            <ncx:text>Log file examination</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s06.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286767963" playOrder="167">
+          <ncx:navLabel>
+            <ncx:text>Spark primes</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s07.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286768253" playOrder="168">
+          <ncx:navLabel>
+            <ncx:text>Spark text file analysis</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s08.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286768418" playOrder="169">
+          <ncx:navLabel>
+            <ncx:text>Spark - evaluating history data</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s09.html"/>
+        </ncx:navPoint>
+        <ncx:navPoint id="id286768804" playOrder="170">
+          <ncx:navLabel>
+            <ncx:text>Summary</ncx:text>
+          </ncx:navLabel>
+          <ncx:content src="ch10s10.html"/>
+        </ncx:navPoint>
+      </ncx:navPoint>
+    </ncx:navPoint>
+  </ncx:navMap>
+</ncx:ncx>

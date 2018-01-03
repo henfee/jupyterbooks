@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Installing Jupyter on Mac</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Installing Jupyter on Mac"><div class="titlepage"><div><div><h1 class="title"><a id="ch01lvl1sec9"/>Installing Jupyter on Mac</h1></div></div></div><p>On Mac, you can use the same Anaconda GUI (for Mac) as described in the previous section. You may also use the command-line tools available for Linux on your Mac.</p><p>You must first install Anaconda. Download the latest version and execute the embedded shell script to install.</p><p>Installing Jupyter on Mac is done through the command line using the <code class="literal">conda install</code> command:</p><pre class="programlisting">
+<span class="strong"><strong>bmac:~ dtoomey$ conda install jupyter </strong></span>
+<span class="strong"><strong>Fetching package metadata: .... </strong></span>
+<span class="strong"><strong>Solving package specifications: .................................... </strong></span>
+<span class="strong"><strong>Package plan for installation in environment /Users/dtoomey/anaconda: </strong></span>
+</pre><p>The following packages will be downloaded:</p><pre class="programlisting">
+<span class="strong"><strong>    package                    |            build </strong></span>
+<span class="strong"><strong>    ---------------------------|----------------- </strong></span>
+<span class="strong"><strong>    mistune-0.7.2              |           py27_1         178 KB </strong></span>
+<span class="strong"><strong>    setuptools-20.3            |           py27_0         453 KB </strong></span>
+<span class="strong"><strong>    conda-4.0.5                |           py27_0         185 KB </strong></span>
+<span class="strong"><strong>    pexpect-4.0.1              |           py27_0          63 KB </strong></span>
+<span class="strong"><strong>    traitlets-4.2.1            |           py27_0         108 KB </strong></span>
+<span class="strong"><strong>    ipython-4.1.2              |           py27_2         931 KB </strong></span>
+<span class="strong"><strong>    jupyter_core-4.1.0         |           py27_0          51 KB </strong></span>
+<span class="strong"><strong>    jupyter_client-4.2.2       |           py27_0          96 KB </strong></span>
+<span class="strong"><strong>    jupyter_console-4.1.1      |           py27_0          24 KB </strong></span>
+<span class="strong"><strong>    notebook-4.1.0             |           py27_2         4.4 MB </strong></span>
+<span class="strong"><strong>    qtconsole-4.2.1            |           py27_0         160 KB </strong></span>
+<span class="strong"><strong>    jupyter-1.0.0              |           py27_2           2 KB </strong></span>
+<span class="strong"><strong>    ------------------------------------------------------------ </strong></span>
+<span class="strong"><strong>                                           Total:         6.6 MB </strong></span>
+</pre><p>The following packages will be updated:</p><pre class="programlisting">
+<span class="strong"><strong>    conda:           3.19.3-py27_0 --&gt; 4.0.5-py27_0 </strong></span>
+<span class="strong"><strong>    ipython:         4.1.2-py27_0  --&gt; 4.1.2-py27_2 </strong></span>
+<span class="strong"><strong>    jupyter:         1.0.0-py27_1  --&gt; 1.0.0-py27_2 </strong></span>
+<span class="strong"><strong>    jupyter_client:  4.1.1-py27_0  --&gt; 4.2.2-py27_0 </strong></span>
+<span class="strong"><strong>    jupyter_console: 4.1.0-py27_0  --&gt; 4.1.1-py27_0 </strong></span>
+<span class="strong"><strong>    jupyter_core:    4.0.6-py27_0  --&gt; 4.1.0-py27_0 </strong></span>
+<span class="strong"><strong>    mistune:         0.7.1-py27_0  --&gt; 0.7.2-py27_1 </strong></span>
+<span class="strong"><strong>    notebook:        4.1.0-py27_0  --&gt; 4.1.0-py27_2 </strong></span>
+<span class="strong"><strong>    pexpect:         3.3-py27_0    --&gt; 4.0.1-py27_0 </strong></span>
+<span class="strong"><strong>    qtconsole:       4.1.1-py27_0  --&gt; 4.2.1-py27_0 </strong></span>
+<span class="strong"><strong>    setuptools:      20.1.1-py27_0 --&gt; 20.3-py27_0 </strong></span>
+<span class="strong"><strong>    traitlets:       4.1.0-py27_0  --&gt; 4.2.1-py27_0 </strong></span>
+<span class="strong"><strong>Proceed ([y]/n)? y </strong></span>
+<span class="strong"><strong>Fetching packages ... </strong></span>
+<span class="strong"><strong>mistune-0.7.2- 100% |#################| Time: 0:00:00   1.87 MB/s </strong></span>
+<span class="strong"><strong>setuptools-20. 100% |#################| Time: 0:00:00   3.53 MB/s </strong></span>
+<span class="strong"><strong>conda-4.0.5-py 100% |#################| Time: 0:00:00   2.47 MB/s </strong></span>
+<span class="strong"><strong>pexpect-4.0.1- 100% |#################| Time: 0:00:00   1.26 MB/s </strong></span>
+<span class="strong"><strong>traitlets-4.2. 100% |#################| Time: 0:00:00   1.71 MB/s </strong></span>
+<span class="strong"><strong>ipython-4.1.2- 100% |#################| Time: 0:00:00   1.77 MB/s </strong></span>
+<span class="strong"><strong>jupyter_core-4 100% |#################| Time: 0:00:00   2.34 MB/s </strong></span>
+<span class="strong"><strong>jupyter_client 100% |#################| Time: 0:00:00   1.58 MB/s </strong></span>
+<span class="strong"><strong>jupyter_consol 100% |#################| Time: 0:00:00   7.82 MB/s </strong></span>
+<span class="strong"><strong>notebook-4.1.0 100% |#################| Time: 0:00:00   4.75 MB/s </strong></span>
+<span class="strong"><strong>qtconsole-4.2. 100% |#################| Time: 0:00:00   1.37 MB/s </strong></span>
+<span class="strong"><strong>jupyter-1.0.0- 100% |#################| Time: 0:00:00   2.71 MB/s </strong></span>
+<span class="strong"><strong>Extracting packages ... </strong></span>
+<span class="strong"><strong>[      COMPLETE ]|#############################################| 100% </strong></span>
+<span class="strong"><strong>Unlinking packages ... </strong></span>
+<span class="strong"><strong>[      COMPLETE ]|#############################################| 100% </strong></span>
+<span class="strong"><strong>Linking packages ...</strong></span>
+<span class="strong"><strong>[      COMPLETE ]|#############################################| 100% </strong></span>
+</pre><div class="note" title="Note" style=""><div class="inner"><h3 class="title"><a id="note7"/>Note</h3><p>You have installed Jupyter.</p></div></div></div></body></html>

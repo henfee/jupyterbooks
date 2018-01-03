@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter&#xA0;3.&#xA0;Jupyter R Scripting</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="chapter" title="Chapter&#xA0;3.&#xA0;Jupyter R Scripting"><div class="titlepage"><div><div><h1 class="title"><a id="ch03"/>Chapter&#xA0;3.&#xA0;Jupyter R Scripting</h1></div></div></div><p>Jupyter's native language is Python. Once Jupyter (essentially, IPython before being renamed) became popular for data analysis, a number of people were interested in using the suite of R programming analysis tools that are available in a Jupyter&#xA0;Notebook.</p><p>In this chapter, we will cover the following topics:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">Adding R scripting to your installation</li><li class="listitem" style="list-style-type: disc">Basic R scripting</li><li class="listitem" style="list-style-type: disc">R dataset access (from a library)</li><li class="listitem" style="list-style-type: disc">R graphics</li><li class="listitem" style="list-style-type: disc">R cluster analysis</li><li class="listitem" style="list-style-type: disc">R forecasting</li></ul></div><div class="section" title="Adding R scripting to your installation"><div class="titlepage"><div><div><h1 class="title"><a id="ch03lvl1sec22"/>Adding R scripting to your installation</h1></div></div></div><p>Two big installation platforms are Mac and Windows. There are separate, but similar, steps required to make R scripting available in your Jupyter installation.</p><div class="section" title="Adding R scripts to Jupyter on a Mac"><div class="titlepage"><div><div><h2 class="title"><a id="ch03lvl2sec9"/>Adding R scripts to Jupyter on a Mac</h2></div></div></div><p>If you are operating a Mac, you can add R&#xA0;scripting using the command-line:</p><pre class="programlisting">
+<span class="strong"><strong>conda install -c r r-essentials</strong></span>
+</pre><p>This will start off with a large installation of the R environment, which contains a number of common packages:</p><pre class="programlisting">
+<span class="strong"><strong>bos-mpdc7:~ dtoomey$ conda install -c r r-essentials</strong></span>
+<span class="strong"><strong>Fetching package metadata: ......</strong></span>
+<span class="strong"><strong>Solving package specifications: .........</strong></span>
+<span class="strong"><strong>Package plan for installation in environment /Users/dtoomey/miniconda3:&#xD;
+    The following packages will be downloaded:</strong></span>
+<span class="strong"><strong>    package                    |            build</strong></span>
+<span class="strong"><strong>    ---------------------------|-----------------</strong></span>
+<span class="strong"><strong>    jbig-2.1                   |                0          31 KB</strong></span>
+<span class="strong"><strong>    jpeg-8d                    |                2         210 KB</strong></span>
+<span class="strong"><strong>    libgcc-4.8.5               |                1         785 KB</strong></span>
+<span class="strong"><strong>... &lt;&lt;many packages&gt;&gt;</strong></span>
+<span class="strong"><strong>    r-caret-6.0_62             |        r3.2.2_0a         4.3 MB</strong></span>
+<span class="strong"><strong>    r-essentials-1.1           |        r3.2.2_1a          726 B</strong></span>
+<span class="strong"><strong>    ------------------------------------------------------------</strong></span>
+<span class="strong"><strong>                                           Total:       101.0 MB&#xD;
+</strong></span>
+<span class="strong"><strong>    The following NEW packages will be INSTALLED:&#xD;
+</strong></span>
+<span class="strong"><strong>    jbig:           2.1-0              </strong></span>
+<span class="strong"><strong>    jpeg:           8d-2  </strong></span>
+<span class="strong"><strong>... &lt;&lt;many packages&gt;&gt;</strong></span>
+<span class="strong"><strong>    r-xts:          0.9_7-r3.2.2_0a    </strong></span>
+<span class="strong"><strong>    r-yaml:         2.1.13-r3.2.2_1a   </strong></span>
+<span class="strong"><strong>    r-zoo:          1.7_12-r3.2.2_1a   </strong></span>
+<span class="strong"><strong>    zeromq:         4.1.3-0            </strong></span>
+<span class="strong"><strong>Proceed ([y]/n)? y</strong></span>
+<span class="strong"><strong>Fetching packages ...</strong></span>
+<span class="strong"><strong>jbig-2.1-0.tar 100% |################################| Time: 0:00:00   1.59 MB/s</strong></span>
+<span class="strong"><strong>jpeg-8d-2.tar. 100% |################################| Time: 0:00:00   2.69 MB/s</strong></span>
+<span class="strong"><strong>... &lt;&lt;many packages&gt;&gt;</strong></span>
+<span class="strong"><strong>r-caret-6.0_62 100% |################################| Time: 0:00:00  11.16 MB/s</strong></span>
+<span class="strong"><strong>r-essentials-1 100% |################################| Time: 0:00:00 537.43 kB/s</strong></span>
+<span class="strong"><strong>Extracting packages ...</strong></span>
+<span class="strong"><strong>[      COMPLETE      ]|###################################################| 100%</strong></span>
+<span class="strong"><strong>Linking packages ...</strong></span>
+<span class="strong"><strong>[      COMPLETE      ]|###################################################| 100%</strong></span>
+</pre><p>From there, you invoke your notebook as you normally would:</p><pre class="programlisting">
+<span class="strong"><strong>ipython notebook</strong></span>
+</pre></div><div class="section" title="Adding R scripts to Jupyter on Windows"><div class="titlepage"><div><div><h2 class="title"><a id="ch03lvl2sec10"/>Adding R scripts to Jupyter on Windows</h2></div></div></div><p>If you are operating a Windows machine, you are in for quite a few steps to get R in Jupyter. This environment was really developed for Linux.</p><p>On my machine, Anaconda&#xA0;was installed in my user directory. This is probably because I selected to install it just for myself. If you open a command-line window in the <code class="literal">Anaconda</code>/<code class="literal">scripts</code> directory, you should first make sure your notebook software is up to date using the following command:</p><pre class="programlisting">
+<span class="strong"><strong>conda update notebook</strong></span>
+</pre><p>This produces the following output (for me - your results may be different so as to update different aspects as needed):</p><pre class="programlisting">
+<span class="strong"><strong>C:\Users\Dan\Anaconda2\Scripts&gt;conda update notebook</strong></span>
+<span class="strong"><strong>Using Anaconda Cloud api site https://api.anaconda.org</strong></span>
+<span class="strong"><strong>Fetching package metadata: ....</strong></span>
+<span class="strong"><strong>Solving package specifications: .........</strong></span>
+<span class="strong"><strong>Package plan for installation in environment C:\Users\Dan\Anaconda2:&#xD;
+    The following packages will be downloaded:</strong></span>
+<span class="strong"><strong>    package                    |            build</strong></span>
+<span class="strong"><strong>    ---------------------------|-----------------</strong></span>
+<span class="strong"><strong>    notebook-4.2.0             |           py27_0         5.2 MB&#xD;
+</strong></span>
+<span class="strong"><strong>    The following packages will be updated:&#xD;
+</strong></span>
+<span class="strong"><strong>    notebook: 4.1.0-py27_2 --&gt; 4.2.0-py27_0</strong></span>
+<span class="strong"><strong>Proceed ([y]/n)? y</strong></span>
+<span class="strong"><strong>Fetching packages ...</strong></span>
+<span class="strong"><strong>notebook-4.2.0 100% |###############################| Time: 0:00:04   1.12 MB/s</strong></span>
+<span class="strong"><strong>Extracting packages ...</strong></span>
+<span class="strong"><strong>[      COMPLETE      ]|########################################| 100%</strong></span>
+<span class="strong"><strong>Unlinking packages ...</strong></span>
+<span class="strong"><strong>[      COMPLETE      ]|########################################| 100%</strong></span>
+<span class="strong"><strong>Linking packages ...</strong></span>
+<span class="strong"><strong>[      COMPLETE      ]|########################################| 100%</strong></span>
+</pre><p>Then we take the plunge and add R scripting:</p><pre class="programlisting">
+<span class="strong"><strong>conda install -c r notebook r-irkernel</strong></span>
+</pre><p>This produces a detailed view of the packages that are updated. In my case, it installed a full set of R packages and runtimes even though I had used R elsewhere on the machine earlier:</p><pre class="programlisting">
+<span class="strong"><strong>C:\Users\Dan\Anaconda2\Scripts&gt;conda install -c r notebook r-irkernel</strong></span>
+<span class="strong"><strong>Using Anaconda Cloud api site https://api.anaconda.org</strong></span>
+<span class="strong"><strong>Fetching package metadata: ......</strong></span>
+<span class="strong"><strong>Solving package specifications: .........</strong></span>
+<span class="strong"><strong>Package plan for installation in environment C:\Users\Dan\Anaconda2:</strong></span>
+<span class="strong"><strong>The following packages will be downloaded:</strong></span>
+<span class="strong"><strong>    package                    |            build</strong></span>
+<span class="strong"><strong>    ---------------------------|-----------------</strong></span>
+<span class="strong"><strong>    msys2-conda-epoch-20160418 |                0          420 B</strong></span>
+<span class="strong"><strong>    m2w64-expat-2.1.1          |                1         164 KB</strong></span>
+<span class="strong"><strong>    m2w64-gmp-6.1.0            |                1         638 KB</strong></span>
+<span class="strong"><strong>    m2w64-gsl-2.1              |                1         2.3 MB</strong></span>
+<span class="strong"><strong>... &lt;&lt;many packages&gt;&gt;</strong></span>
+<span class="strong"><strong>    r-evaluate-0.8.3           |         r3.2.4_0          44 KB</strong></span>
+<span class="strong"><strong>    r-irkernel-0.6             |         r3.2.4_0          78 KB</strong></span>
+<span class="strong"><strong>    ------------------------------------------------------------</strong></span>
+<span class="strong"><strong>                                           Total:       100.5 MB</strong></span>
+<span class="strong"><strong>The following NEW packages will be INSTALLED:</strong></span>
+<span class="strong"><strong>    m2w64-bwidget:           1.9.10-1</strong></span>
+<span class="strong"><strong>    m2w64-bzip2:             1.0.6-5</strong></span>
+<span class="strong"><strong>    m2w64-expat:             2.1.1-1</strong></span>
+<span class="strong"><strong>    r-stringi:               1.0_1-r3.2.4_0</strong></span>
+<span class="strong"><strong>    r-stringr:               1.0.0-r3.2.4_0</strong></span>
+<span class="strong"><strong>    r-survival:              2.38_3-r3.2.4_0</strong></span>
+<span class="strong"><strong>    r-uuid:                  0.1_2-r3.2.4_0</strong></span>
+<span class="strong"><strong>... &lt;&lt;many packages&gt;&gt;</strong></span>
+<span class="strong"><strong>Proceed ([y]/n)? y</strong></span>
+<span class="strong"><strong>Fetching packages ...</strong></span>
+<span class="strong"><strong>msys2-conda-ep 100% |#####################| Time: 0:00:00  26.25 kB/s</strong></span>
+<span class="strong"><strong>m2w64-expat-2. 100% |#####################| Time: 0:00:00   1.19 MB/s</strong></span>
+<span class="strong"><strong>m2w64-gmp-6.1. 100% |#####################| Time: 0:00:00   1.90 MB/s</strong></span>
+<span class="strong"><strong>m2w64-gsl-2.1- 100% |#####################| Time: 0:00:00   3.27 MB/s</strong></span>
+<span class="strong"><strong>m2w64-libiconv 100% |#####################| Time: 0:00:00   2.82 MB/s</strong></span>
+<span class="strong"><strong>... &lt;&lt;many packages&gt;&gt;</strong></span>
+<span class="strong"><strong>r-evaluate-0.8 100% |#####################| Time: 0:00:00 964.72 kB/s</strong></span>
+<span class="strong"><strong>r-irkernel-0.6 100% |#####################| Time: 0:00:00 508.94 kB/s</strong></span>
+<span class="strong"><strong>Extracting packages ...</strong></span>
+<span class="strong"><strong>[      COMPLETE      ]|########################################| 100%</strong></span>
+<span class="strong"><strong>Linking packages ...</strong></span>
+<span class="strong"><strong>[      COMPLETE      ]|########################################| 100%</strong></span>
+</pre></div><div class="section" title="Adding R packages to Jupyter"><div class="titlepage"><div><div><h2 class="title"><a id="ch03lvl2sec11"/>Adding R packages to Jupyter</h2></div></div></div><p>The standard installation for R under Jupyter has many packages that are commonly used in R programming. However, if you do need to add another package, it is a small number of steps:</p><div class="orderedlist"><ol class="orderedlist arabic"><li class="listitem">Close down your notebook (including the server).</li><li class="listitem">In the command-line window, type the following:<pre class="programlisting">
+<span class="strong"><strong>R</strong></span>
+<span class="strong"><strong>install.packages("name of the R package you want to add")</strong></span>
+<span class="strong"><strong>quit()</strong></span>
+<span class="strong"><strong># answer Yes to save</strong></span>
+</pre></li><li class="listitem">Restart your notebook, and the package should be available for use in your R script. To use an installed package, type <code class="literal">library</code>(name of the R package you want to add).</li></ol></div><p>Note, you may still have problems in R if the core version of R that you have installed is out of date and you need to upgrade to use a particular library.</p></div><div class="section" title="R limitations in Jupyter"><div class="titlepage"><div><div><h2 class="title"><a id="ch03lvl2sec12"/>R limitations in Jupyter</h2></div></div></div><p>In this chapter, we used a variety of packages, both pre-installed and installed especially for the example. I have exercised a variety of materials available in R under Jupyter and have not found any limitations; you can do most of the steps in Jupyter that you would have done under the standard R implementations. The only limitation appears to be when you are using <span class="strong"><strong>Shiny</strong></span> or if you are attempting to use extensive markdown:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">For Shiny, I think you are mixing purposes-Jupyter&#xA0;provides a web experience and so does Shiny-so I'm not sure how to even decide if this should work. This issue is being addressed by the Jupyter development group.</li><li class="listitem" style="list-style-type: disc">Using extensive markdown also does not appear to be a good idea. The intent of markdown was to allow notebook developers to augment the standard output (of R) in a more illustrative manner. I think if you are adding extensive markdown to your notebook you really need to develop a website, maybe using Shiny-then you would have all HTML markdown available.</li></ul></div></div><div class="section" title="After adding R scripts to Jupyter"><div class="titlepage"><div><div><h2 class="title"><a id="ch03lvl2sec13"/>After adding R scripts to Jupyter</h2></div></div></div><p>Once the notebook is up and running (you should be able to use the command-line <code class="literal">jupyter notebook</code>), if you open the <span class="strong"><strong>New</strong></span> menu in the top-right, you will see a choice has been added for R scripting:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_03_001.jpg" alt="After adding R scripts to Jupyter"/></div><p>
+</p></div></div></div></body></html>

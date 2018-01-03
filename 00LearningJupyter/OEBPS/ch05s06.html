@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Node.js stats-analysis package</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Node.js stats-analysis package"><div class="titlepage"><div><div><h1 class="title"><a id="ch05lvl1sec45"/>Node.js stats-analysis package</h1></div></div></div><p>The <code class="literal">stats-analysis</code> package has many of the common statistics you may want to perform on your data. You would have to install this package using <code class="literal">npm</code> as explained previously.</p><p>If we had a small set of people's temperatures to work with, we could get some of the statistics on the data readily, using this script:</p><pre class="programlisting">
+<span class="strong"><strong>const stats = require("stats-analysis");</strong></span>
+<span class="strong"><strong>var arr = [98, 98.6, 98.4, 98.8, 200, 120, 98.5];</strong></span>
+<span class="strong"><strong>//standard deviation</strong></span>
+<span class="strong"><strong>var my_stddev = stats.stdev(arr).toFixed(2);</strong></span>
+<span class="strong"><strong>//mean</strong></span>
+<span class="strong"><strong>var my_mean = stats.mean(arr).toFixed(2);</strong></span>
+<span class="strong"><strong>//median</strong></span>
+<span class="strong"><strong>var my_median = stats.median(arr);</strong></span>
+<span class="strong"><strong>//median absolute deviation</strong></span>
+<span class="strong"><strong>var my_mad = stats.MAD(arr);</strong></span>
+<span class="strong"><strong>// Get the index locations of the outliers in the data set</strong></span>
+<span class="strong"><strong>var my_outliers = stats.indexOfOutliers(arr);</strong></span>
+<span class="strong"><strong>// Remove the outliers</strong></span>
+<span class="strong"><strong>var my_without_outliers = stats.filterOutliers(arr);</strong></span>
+<span class="strong"><strong>//display our stats</strong></span>
+<span class="strong"><strong>console.log("Raw data is ", arr);</strong></span>
+<span class="strong"><strong>console.log("Standard Deviation is ", my_stddev);</strong></span>
+<span class="strong"><strong>console.log("Mean is ", my_mean);</strong></span>
+<span class="strong"><strong>console.log("Median is ", my_median);</strong></span>
+<span class="strong"><strong>console.log("Median Abs Deviation is " + my_mad);</strong></span>
+<span class="strong"><strong>console.log("The outliers of the data set are ", my_outliers);</strong></span>
+<span class="strong"><strong>console.log("The data set without outliers is ", my_without_outliers);</strong></span>
+</pre><p>When this script is entered in a notebook we get something similar to the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_05_006.jpg" alt="Node.js stats-analysis package"/></div><p>
+</p><p>When run, we get the results shown in the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_05_007.jpg" alt="Node.js stats-analysis package"/></div><p>
+</p><p>Interestingly, the <code class="literal">98.5</code> is considered an outlier. I assume there is an optional parameter to the command that would change the limits used. Otherwise, the results are as expected.</p><p>The outliers are coming from dealing with the raw data as pure mathematical items. So, from the data provided we have identified the outliers. However, we would probably use a different method to determine outliers, since we know the domain-average human temperatures.</p></div></body></html>

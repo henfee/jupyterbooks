@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Interactive widget</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Interactive widget"><div class="titlepage"><div><div><h1 class="title"><a id="ch06lvl1sec55"/>Interactive widget</h1></div></div></div><p>There is also an <span class="strong"><strong>interactive</strong></span> widget. The interactive widget works like the interact widget, but does not display the user input control until called upon directly by the script. This would be useful if you had some calculations that had to be performed for the parameters of the widget display, or even if you wanted to decide whether you needed a control at runtime.</p><p>For example, we could have the following script (similar to the preceding script):</p><pre class="programlisting">
+<span class="strong"><strong>from ipywidgets import interactive</strong></span>
+<span class="strong"><strong>def myfunction(x):</strong></span>
+<span class="strong"><strong>    return x</strong></span>
+<span class="strong"><strong>w = interactive(myfunction, x= "Hello World ");</strong></span>
+<span class="strong"><strong>from IPython.display import display</strong></span>
+<span class="strong"><strong>display(w)</strong></span>
+</pre><p>There are a couple of changes to the script:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">We are referencing the interactive widget</li><li class="listitem" style="list-style-type: disc">The <code class="literal">interactive</code> function returns a widget, rather than immediately displaying a value</li><li class="listitem" style="list-style-type: disc">We must script the display of the widget ourselves</li></ul></div><p>If we run this script, it looks very similar to the result of the previous script:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_06_006.jpg" alt="Interactive widget"/></div><p>
+</p></div></body></html>

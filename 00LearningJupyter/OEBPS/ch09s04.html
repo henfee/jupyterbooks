@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Scala random numbers in Jupyter</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Scala random numbers in Jupyter"><div class="titlepage"><div><div><h1 class="title"><a id="ch09lvl1sec68"/>Scala random numbers in Jupyter</h1></div></div></div><p>In this example, we simulate a rolling dice and count how many times each combination appears. We then present a simple histogram for illustrative purposes.</p><p>The script is as follows:</p><pre class="programlisting">
+<span class="strong"><strong>val r = new scala.util.Random</strong></span>
+<span class="strong"><strong>r.setSeed(113L)</strong></span>
+<span class="strong"><strong>val samples = 1000</strong></span>
+<span class="strong"><strong>var dice = new Array[Int](12)</strong></span>
+<span class="strong"><strong>for( i &lt;- 1 to samples){</strong></span>
+<span class="strong"><strong>    var total = r.nextInt(6) + r.nextInt(6)</strong></span>
+<span class="strong"><strong>    dice(total) = dice(total) + 1</strong></span>
+<span class="strong"><strong>}</strong></span>
+<span class="strong"><strong>val max = dice.reduceLeft(_ max _)</strong></span>
+<span class="strong"><strong>for( i &lt;- 0 to 11) {</strong></span>
+<span class="strong"><strong>    var str = ""</strong></span>
+<span class="strong"><strong>    for( j &lt;- 1 to dice(i)/3) {</strong></span>
+<span class="strong"><strong>        str = str + "X"</strong></span>
+<span class="strong"><strong>    }</strong></span>
+<span class="strong"><strong>    print(i+1, str, "\n")</strong></span>
+<span class="strong"><strong>}</strong></span>
+</pre><p>We first pull in the Scala random library. We set the seed (in order to have repeatable results). We are drawing 1,000 rolls. For each roll, we increment a counter of how many times the total of pips on die 1 and die 2 appear. Then we present an abbreviated histogram of the results.</p><p>Scala has a number of shortcut methods for quick scanning through a list/collection, as seen in the <code class="literal">reduceLeft(_ max _)</code> statement. We can also find the minimum value by using <code class="literal">min</code> instead of <code class="literal">max</code> in the <code class="literal">reduceLeft</code> statement.</p><p>When we run the script, we have these results:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_09_006.jpg" alt="Scala random numbers in Jupyter"/></div><p>
+</p><p>We can see the crude histogram and the follow-on display of the current values of scalar variables in the script. Note that I divided by three so the results would fit on a page.</p></div></body></html>

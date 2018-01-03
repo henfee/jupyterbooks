@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Estimate Pi</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Estimate Pi"><div class="titlepage"><div><div><h1 class="title"><a id="ch10lvl1sec82"/>Estimate Pi</h1></div></div></div><p>We can use map/reduce to estimate the Pi. Suppose we have code like this:</p><pre class="programlisting">
+<span class="strong"><strong>import pyspark</strong></span>
+<span class="strong"><strong>import random</strong></span>
+<span class="strong"><strong>if not 'sc' in globals():</strong></span>
+<span class="strong"><strong>    sc = pyspark.SparkContext()</strong></span>
+<span class="strong"><strong>NUM_SAMPLES = 1000</strong></span>
+<span class="strong"><strong>def sample(p):</strong></span>
+<span class="strong"><strong>    x,y = random.random(),random.random()</strong></span>
+<span class="strong"><strong>    return 1 if x*x + y*y &lt; 1 else 0</strong></span>
+<span class="strong"><strong>count = sc.parallelize(xrange(0, NUM_SAMPLES)) \</strong></span>
+<span class="strong"><strong>            .map(sample) \</strong></span>
+<span class="strong"><strong>            .reduce(lambda a, b: a + b)</strong></span>
+<span class="strong"><strong>print "Pi is roughly %f" % (4.0 * count / NUM_SAMPLES)</strong></span>
+</pre><p>This code has the same preamble. We are using the <code class="literal">random</code> Python package. There is a constant for the number of samples to attempt.</p><p>We are building an RDD called <code class="literal">count</code>. We call upon the <code class="literal">parallelize</code> function to split up this process over the nodes available. The code just maps the result of the <code class="literal">sample</code> function call. Finally, we reduce the generated map set by adding all the samples.</p><p>The <code class="literal">sample</code> function gets two random numbers and returns a <code class="literal">1</code> or a <code class="literal">0</code> depending on where the two numbers end up in size. We are looking for random numbers in a small range and then comparing whether they occur within a circle of the same diameter. With a large enough sample, we would end up with Pi (3.141...).</p><p>If we run this in Jupyter, we see the following:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_10_004.jpg" alt="Estimate Pi"/></div><p>
+</p><p>When I ran this with <code class="literal">NUM_SAMPLES = 10000</code>, I ended up with this:</p><pre class="programlisting">
+<span class="strong"><strong>PI = 3.138000.</strong></span>
+</pre></div></body></html>

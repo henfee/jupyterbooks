@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Converting notebooks</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Converting notebooks"><div class="titlepage"><div><div><h1 class="title"><a id="ch07lvl1sec59"/>Converting notebooks</h1></div></div></div><p>The standard tool for converting notebooks to other formats is the <code class="literal">nbconvert</code> utility. It is built-in to your Jupyter installation. You can access the tool directly in the user interface for your notebook. If you open a notebook, select the Jupyter <span class="strong"><strong>File</strong></span> menu item, and you will see several options for <span class="strong"><strong>Download as</strong></span>:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_07_003.jpg" alt="Converting notebooks"/></div><p>
+</p><p>The choices are as follows:</p><div class="informaltable"><table border="1"><colgroup><col/><col/></colgroup><tbody><tr><td>
+<p>
+<span class="strong"><strong>Format type</strong></span>
+</p>
+</td><td>
+<p>
+<span class="strong"><strong>File extension</strong></span>
+</p>
+</td></tr><tr><td>
+<p>Notebook</p>
+</td><td>
+<p>
+<code class="literal">.ipynb</code>
+</p>
+</td></tr><tr><td>
+<p>JavaScript</p>
+</td><td>
+<p>
+<code class="literal">.js</code>
+</p>
+</td></tr><tr><td>
+<p>HTML</p>
+</td><td>
+<p>
+<code class="literal">.html</code>
+</p>
+</td></tr><tr><td>
+<p>Markdown</p>
+</td><td>
+<p>
+<code class="literal">.md</code>
+</p>
+</td></tr><tr><td>
+<p>Restructured text</p>
+</td><td>
+<p>
+<code class="literal">.rst</code>
+</p>
+</td></tr><tr><td>
+<p>PDF</p>
+</td><td>
+<p>
+<code class="literal">.pdf</code>
+</p>
+</td></tr></tbody></table></div><p>For these examples, if we take a notebook from a previous chapter, the Jupyter&#xA0;Notebook looks like this:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_07_004.jpg" alt="Converting notebooks"/></div><p>
+</p><div class="section" title="Notebook format"><div class="titlepage"><div><div><h2 class="title"><a id="ch07lvl2sec42"/>Notebook format</h2></div></div></div><p>The notebook format (IPYNB) is the native format for your notebook. We have looked into this IPYNB file in earlier chapters to see what Jupyter is storing for your notebook.</p><p>You would use the notebook format if you wanted to give another user complete access to your notebook since they would run your notebook from their system.</p><p>You may also want to do this to save your notebook in another medium.</p></div><div class="section" title="JavaScript format"><div class="titlepage"><div><div><h2 class="title"><a id="ch07lvl2sec43"/>JavaScript format</h2></div></div></div><p>JavaScript (<code class="literal">.js</code>) format corresponds to the JavaScript implementation of your notebook. If you used JavaScript as the language for your notebook, this is a direct export of the notebook page.</p><p>If you used another language for the script of the notebook, such as Python, then the <span class="strong"><strong>Download&#xA0;as</strong></span> option would change appropriately, that is, <span class="strong"><strong>Download&#xA0;as</strong></span>&#xA0;|&#xA0;<span class="strong"><strong>Python</strong></span>
+<span class="strong"><strong>(.py)</strong></span>.</p><p>Using our example, as expected, the JS format is equivalent to the Jupyter display:</p><pre class="programlisting">const stats = require("stats-analysis"); &#xD;
+var arr = [98, 98.6, 98.4, 98.8, 200, 120, 98.5] &#xD;
+//standard deviation  &#xD;
+var my_stddev = stats.stdev(arr).toFixed(2); &#xD;
+//mean  &#xD;
+var my_mean = stats.mean(arr).toFixed(2); &#xD;
+//median  &#xD;
+var my_median = stats.median(arr); &#xD;
+//median absolute deviation  &#xD;
+var my_mad = stats.MAD(arr); &#xD;
+// Outlier detection. Returns indexes of outliers  &#xD;
+var my_outliers = stats.indexOfOutliers(arr); &#xD;
+... &#xD;
+</pre><p>With the JS format, you can run the script directly using a JavaScript interpreter. On a Mac, there is the <code class="literal">js</code> command. Similar tools exist for Windows machines.</p><p>Also, for other script languages, you should be able to run the script in the appropriate interpreter, such as Python.</p><p>If we run this JavaScript file (from a command-line window) we see these results in the cell output:</p><pre class="programlisting">
+<span class="strong"><strong>$ node Stats+Analysis.js</strong></span>
+<span class="strong"><strong>Raw data is  [ 98, 98.6, 98.4, 98.8, 200, 120, 98.5 ]</strong></span>
+<span class="strong"><strong>Standard Deviation is  35.07</strong></span>
+<span class="strong"><strong>Mean is  116.04</strong></span>
+<span class="strong"><strong>Median is  98.6</strong></span>
+<span class="strong"><strong>Median Abs Deviation is 0.20000000000000284</strong></span>
+<span class="strong"><strong>The outliers of the data set are  [ 4, 5, 6 ]</strong></span>
+<span class="strong"><strong>The data set without outliers is  [ 98, 98.6, 98.4, 98.8 ]&#xD;
+</strong></span>
+</pre></div><div class="section" title="HTML format"><div class="titlepage"><div><div><h2 class="title"><a id="ch07lvl2sec44"/>HTML format</h2></div></div></div><p>The HTML (<code class="literal">.html</code>) format corresponds to the HTML needed to display the page as it appears in your notebook in a web browser. The generated HTML does not have any coding logic-it only has the HTML necessary to display a similar page.</p><p>The HTML format would be useful to convey to another user the results of your notebook. You may want to do this if you wanted to e-mail your notebook to another user (where the raw HTML would be transported and viewable in an e-mail client application).</p><p>HTML is also useful if you have a web service available where you can insert new pages. If the web server does not have support for Jupyter files (refer to the first section of this chapter), HTML may be your only choice. Similarly, you may not want to hand over your source Jupyter&#xA0;Notebook (IPYNB) file even if the web server does support Jupyter.</p><p>The exported HTML format looks like this in a browser:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_07_005.jpg" alt="HTML format"/></div><p>
+</p><p>Notice that none of the Jupyter heading information is displayed or available. Otherwise, it does look the same as the Jupyter display.</p></div><div class="section" title="Markdown format"><div class="titlepage"><div><div><h2 class="title"><a id="ch07lvl2sec45"/>Markdown format</h2></div></div></div><p>Markdown (<code class="literal">.md</code>) format is a looser version of HTML (remember that HTML stands for Hypertext Markup Language). MD files can be used by some tools. It is normally used as the format of README files for software distributions (where the client's capabilities for display can be very limited).</p><p>For example, the Markdown format of the same notebook is as follows:</p><pre class="programlisting">```javascript &#xD;
+const stats = require("stats-analysis"); &#xD;
+var arr = [98, 98.6, 98.4, 98.8, 200, 120, 98.5]; &#xD;
+//standard deviation  &#xD;
+var my_stddev = stats.stdev(arr).toFixed(2); &#xD;
+//mean  &#xD;
+var my_mean = stats.mean(arr).toFixed(2); &#xD;
+//median  &#xD;
+var my_median = stats.median(arr); &#xD;
+//median absolute deviation  &#xD;
+var my_mad = stats.MAD(arr); &#xD;
+// Outlier detection. Returns indexes of outliers  &#xD;
+var my_outliers = stats.indexOfOutliers(arr); &#xD;
+// Remove the outliers  &#xD;
+var my_without_outliers = stats.filterOutliers(arr); &#xD;
+//display our stats &#xD;
+console.log("Raw data is ", arr); &#xD;
+...</pre><p>Obviously, the Markdown format is a very low-level display. There are only minor text markings that help the reader determine the different formatting in use. I used the Atom editor to see what this looks like interpreted:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_07_006.jpg" alt="Markdown format"/></div><p>
+</p><p>Again, a very clean display -still close to the Jupyter&#xA0;Notebook display.</p></div><div class="section" title="reStructuredText format"><div class="titlepage"><div><div><h2 class="title"><a id="ch07lvl2sec46"/>reStructuredText format</h2></div></div></div><p>The reStructuredText (<code class="literal">.rst</code>) format is a simple, plain-text markup language that is sometimes used for programming documentation.</p><p>For example, the RST format for the example page looks like this:</p><pre class="programlisting">.. code:: python &#xD;
+    const stats = require("stats-analysis"); &#xD;
+    var arr = [98, 98.6, 98.4, 98.8, 200, 120, 98.5];     &#xD;
+    //standard deviation  &#xD;
+    var my_stddev = stats.stdev(arr).toFixed(2);      &#xD;
+    //mean  &#xD;
+    var my_mean = stats.mean(arr).toFixed(2);      &#xD;
+    //median  &#xD;
+    var my_median = stats.median(arr);      &#xD;
+    //median absolute deviation  &#xD;
+    var my_mad = stats.MAD(arr);      &#xD;
+    // Outlier detection. Returns indexes of outliers  &#xD;
+    var my_outliers = stats.indexOfOutliers(arr);      &#xD;
+    // Remove the outliers  &#xD;
+    var my_without_outliers = stats.filterOutliers(arr);     &#xD;
+    //display our stats &#xD;
+    console.log("Raw data is ", arr); &#xD;
+...&#xD;
+</pre><p>As you can see, it is similar to the Markdown in the previous example-just gives a rudimentary breakout of the code into chunks.</p><p>Using Atom for display the RST file results in this:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_07_007.jpg" alt="reStructuredText format"/></div><p>
+</p><p>The RST display is not as nice as some of the others.</p></div><div class="section" title="PDF format"><div class="titlepage"><div><div><h2 class="title"><a id="ch07lvl2sec47"/>PDF format</h2></div></div></div><p>The PDF (<code class="literal">.pdf</code>) format is a well-known display format used for many sources. PDF is a good format for conveying unmodifiable content to other users. The other users will not be able to modify results in any way, but they will be able to see and understand your logic.</p><p>Jupyter uses the <span class="strong"><strong>LaTeX</strong></span> package to export the image of the notebook to a PDF file. You have to install this package on your machine in order for this to work. On Mac, this involves the following:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">Install LaTex-there are separate installations for Windows and Mac</li><li class="listitem" style="list-style-type: disc">The following (Mac) commands for fonts:</li></ul></div><pre class="programlisting">
+<span class="strong"><strong>sudo tlmgr install adjustbox</strong></span>
+<span class="strong"><strong>sudo tlmgr install collection-fontsrecommended</strong></span>
+</pre><div class="note" title="Note" style=""><div class="inner"><h3 class="title"><a id="note28"/>Note</h3><p>Note this installation was pretty cumbersome. I installed the full LaTeX, then another note said to install a mini version of LaTeX. And then it was tricky to install the fonts. I have very little confidence these steps will work correctly on a Windows machine.</p></div></div><p>If you do not have the full set of the packages needed, when you try to download the PDF file, a new screen will open in your notebook and a long error message will be displayed showing what piece is missing.</p><p>For our example, the generated PDF file looks like this:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_07_008.jpg" alt="PDF format"/></div><p>
+</p><p>I think this is a nice, clean display of your notebook.</p></div></div></body></html>

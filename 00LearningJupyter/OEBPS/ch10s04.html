@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Sorted word count</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Sorted word count"><div class="titlepage"><div><div><h1 class="title"><a id="ch10lvl1sec81"/>Sorted word count</h1></div></div></div><p>Using the same script with a slight modification, we can make one more call and have sorted results. The script now looks like this:</p><pre class="programlisting">
+<span class="strong"><strong>import pyspark</strong></span>
+<span class="strong"><strong>if not 'sc' in globals():</strong></span>
+<span class="strong"><strong>    sc = pyspark.SparkContext()</strong></span>
+<span class="strong"><strong>text_file = sc.textFile("Spark File Words.ipynb")</strong></span>
+<span class="strong"><strong>sorted_counts = text_file.flatMap(lambda line: line.split(" ")) \</strong></span>
+<span class="strong"><strong>            .map(lambda word: (word, 1)) \</strong></span>
+<span class="strong"><strong>            .reduceByKey(lambda a, b: a + b) \</strong></span>
+<span class="strong"><strong>            .sortByKey()</strong></span>
+<span class="strong"><strong>for x in sorted_counts.collect():</strong></span>
+<span class="strong"><strong>    print x</strong></span>
+</pre><p>Here, we have added another function call to the RDD creation, <code class="literal">sortByKey()</code>. So, after we have map/reduced and arrived at list of words and occurrence, we can easily sort the results.</p><p>The resultant output looks like this:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_10_003.jpg" alt="Sorted word count"/></div><p>
+</p></div></body></html>

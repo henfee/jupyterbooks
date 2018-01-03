@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Interact widget</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Interact widget"><div class="titlepage"><div><div><h1 class="title"><a id="ch06lvl1sec54"/>Interact widget</h1></div></div></div><p>
+<span class="strong"><strong>Interact</strong></span> is the basic widget that is often used to derive all other widgets. It has variable arguments, and, depending on these arguments, can affect many different variations of user input control.</p><div class="section" title="Interact widget slider"><div class="titlepage"><div><div><h2 class="title"><a id="ch06lvl2sec26"/>Interact widget slider</h2></div></div></div><p>We can use interact to produce a slider by passing in an extent. Take the following script:</p><pre class="programlisting">
+<span class="strong"><strong>from ipywidgets import interact</strong></span>
+<span class="strong"><strong># define a function to work with (cubes the number)</strong></span>
+<span class="strong"><strong>def myfunction(arg):</strong></span>
+<span class="strong"><strong>    return arg+1</strong></span>
+<span class="strong"><strong>interact(myfunction, arg=9);</strong></span>
+</pre><p>Here, we have a script that does the following:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">References the package we want to use</li><li class="listitem" style="list-style-type: disc">Defines a function (which is called for every user input of a value)</li><li class="listitem" style="list-style-type: disc">Calls out to interact, passing our <span class="emphasis"><em>handler</em></span> and a range of values</li></ul></div><p>When we run this script, we get a scrollbar that is modifiable by the user:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_06_002.jpg" alt="Interact widget slider"/></div><p>
+</p><p>The user is able to <span class="emphasis"><em>slide</em></span> the vertical bar over the range of values. The upper end is <span class="strong"><strong>27</strong></span> and the lower end is <span class="strong"><strong>-9</strong></span>&#xA0;(assume we could pass additional arguments to interact to set the range of values that are selectable). <code class="literal">myfunction</code> is called every time the value in the <code class="literal">interact</code> widget is changed and the result printed. As a result, we see <span class="strong"><strong>27</strong></span> selected and the number <span class="strong"><strong>28</strong></span> displayed below the slider (following the processing of &#xA0;<code class="literal">myfunction</code>&#xA0;-27 +1).</p></div><div class="section" title="Interact widget checkbox"><div class="titlepage"><div><div><h2 class="title"><a id="ch06lvl2sec27"/>Interact widget checkbox</h2></div></div></div><p>We can change the type of control generated based on the arguments passed to interact. Take the following script:</p><pre class="programlisting">
+<span class="strong"><strong>from ipywidgets import interact</strong></span>
+<span class="strong"><strong>def myfunction(x):</strong></span>
+<span class="strong"><strong>    return x</strong></span>
+<span class="strong"><strong>interact(myfunction, x=False);</strong></span>
+</pre><p>We are going through the same steps as before; however, the value passed is <code class="literal">False</code> (could also be <code class="literal">True</code>). The <code class="literal">interact</code> function examines the argument passed, determines that it is a Boolean value, and presents the appropriate control for a Boolean-a checkbox:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_06_003.jpg" alt="Interact widget checkbox"/></div><p>
+</p></div><div class="section" title="Interact widget text box"><div class="titlepage"><div><div><h2 class="title"><a id="ch06lvl2sec28"/>Interact widget text box</h2></div></div></div><p>We can generate a text input control again by passing in different arguments to <code class="literal">interact</code>. For example, take the following script:</p><pre class="programlisting">
+<span class="strong"><strong>from ipywidgets import interact</strong></span>
+<span class="strong"><strong>def myfunction(x):</strong></span>
+<span class="strong"><strong>    return x</strong></span>
+<span class="strong"><strong>interact(myfunction, x= "Hello World ");</strong></span>
+</pre><p>The script produces a text input control with the initial value of <code class="literal">"Hello World"</code>:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_06_004.jpg" alt="Interact widget text box"/></div><p>
+</p></div><div class="section" title="Interact dropdown"><div class="titlepage"><div><div><h2 class="title"><a id="ch06lvl2sec29"/>Interact dropdown</h2></div></div></div><p>We can also use the interact function to produce a drop-down list box for the user to select from. In the following script, we produce a dropdown with two choices:</p><pre class="programlisting">
+<span class="strong"><strong>from ipywidgets import interact</strong></span>
+<span class="strong"><strong>def myfunction(x):</strong></span>
+<span class="strong"><strong>    return x</strong></span>
+<span class="strong"><strong>interact(myfunction, x=('red','green'));</strong></span>
+</pre><p>This script does the following:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">Pulls in the interact reference</li><li class="listitem" style="list-style-type: disc">Defines a function that will be called whenever the user changes the value of the control</li><li class="listitem" style="list-style-type: disc">Calls interact with a set of values-interact will interpret this to mean create a dropdown for the user to select from.</li></ul></div><p>If we run this script in a notebook, we get a display like the following:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_06_005.jpg" alt="Interact dropdown"/></div><p>
+</p><p>The value printed at the bottom will change according to what is selected in the dropdown by the user.</p></div></div></body></html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Basic R in Jupyter</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Basic R in Jupyter"><div class="titlepage"><div><div><h1 class="title"><a id="ch03lvl1sec23"/>Basic R in Jupyter</h1></div></div></div><p>Start a new <span class="strong"><strong>R</strong></span> notebook and call it <code class="literal">R Basics</code>. We can enter a small script just so we can see how the steps progress for an R script. Enter the following into separate cells of your notebook:</p><pre class="programlisting">
+<span class="strong"><strong>myString &lt;- "Hello, World!"</strong></span>
+<span class="strong"><strong>print (myString)</strong></span>
+</pre><p>You will end up with a starting screen that looks like this:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_03_002.jpg" alt="Basic R in Jupyter"/></div><p>
+</p><p>We should note the aspects of the R notebook view:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">We have the R logo in the upper-right corner. You will see this logo running in other R installations.</li><li class="listitem" style="list-style-type: disc">There is also the peculiar <span class="strong"><strong>R O</strong></span> just below the R icon. The unfilled circle indicates that the kernel is at rest, and the filled circle indicates the kernel is working.</li><li class="listitem" style="list-style-type: disc">The rest of the menu items are the same as we have seen before.</li></ul></div><p>This is a very simple script-set a variable in one cell then print out its value in another cell. Once executed (<span class="strong"><strong>Cell</strong></span> | <span class="strong"><strong>Run All</strong></span>), you will see your results:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_03_003.jpg" alt="Basic R in Jupyter"/></div><p>
+</p><p>So, just as if you ran the script in an R interpreter, you get your output (with the numerical prefix). Jupyter has counted the statements so we have incremental numbering of the cells. Jupyter has not done anything special to print out variables for debugging, you would have to do that separately.</p><p>If we look at the R server-logging statements (a command-line window was created when we started Jupyter), we see the actions that took place:</p><pre class="programlisting">
+<span class="strong"><strong>$ jupyter notebook</strong></span>
+<span class="strong"><strong>[I 11:00:06.965 NotebookApp] Serving notebooks from local directory: /Users/dtoomey/miniconda3/bin</strong></span>
+<span class="strong"><strong>[I 11:00:06.965 NotebookApp] 0 active kernels </strong></span>
+<span class="strong"><strong>[I 11:00:06.965 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/</strong></span>
+<span class="strong"><strong>[I 11:00:06.965 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).</strong></span>
+<span class="strong"><strong>[I 11:00:17.447 NotebookApp] Creating new notebook in </strong></span>
+<span class="strong"><strong>[I 11:00:18.199 NotebookApp] Kernel started: 518308da-460a-4eb9-9959-1411e31dec69</strong></span>
+<span class="strong"><strong>[1] "Got unhandled msg_type:" "comm_open"              </strong></span>
+<span class="strong"><strong>[I 11:02:18.160 NotebookApp] Saving file at /Untitled.ipynb</strong></span>
+<span class="strong"><strong>[I 11:08:27.340 NotebookApp] Saving file at /R Basics.ipynb</strong></span>
+<span class="strong"><strong>[1] "Got unhandled msg_type:" "comm_open"              </strong></span>
+<span class="strong"><strong>[I 11:14:45.204 NotebookApp] Saving file at /R Basics.ipynb</strong></span>
+</pre><p>We started the server, created a new notebook, and saved it as <code class="literal">R Basics</code>. If we open the IPYNB file on disk (using a text editor), we can see the following:</p><pre class="programlisting">{ &#xD;
+  "cells": [ &#xD;
+    ...&lt;similar to previously displayed&gt; &#xD;
+  ], &#xD;
+  "metadata": { &#xD;
+    "kernelspec": { &#xD;
+      "display_name": "R", &#xD;
+      "language": "R", &#xD;
+      "name": "ir" &#xD;
+    }, &#xD;
+    "language_info": { &#xD;
+      "codemirror_mode": "r", &#xD;
+      "file_extension": ".r", &#xD;
+      "mimetype": "text/x-r-source", &#xD;
+      "name": "R", &#xD;
+      "pygments_lexer": "r", &#xD;
+      "version": "3.2.2" &#xD;
+    } &#xD;
+  }, &#xD;
+  ...&lt;omitted&gt; &#xD;
+} &#xD;
+</pre><p>This is a little different than what we saw in the prior chapter on Python notebook coding. Particularly, the metadata clearly tells the script cells to be R script. Note, the actual cells are not specific to a language-they are just scripts that will be executed as per the metadata directives.</p></div></body></html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Node.js JSON handling</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Node.js JSON handling"><div class="titlepage"><div><div><h1 class="title"><a id="ch05lvl1sec46"/>Node.js JSON handling</h1></div></div></div><p>In this example, we will load a JSON dataset and perform some standard manipulations of the data. I am referencing the list of Ford models from 
+<a class="ulink" href="http://www.carqueryapi.com/api/0.3/?callback=?&amp;cmd=getModels&amp;make=ford">http://www.carqueryapi.com/api/0.3/?callback=?&amp;cmd=getModels&amp;make=ford</a>
+. I could not reference this directly as it is not a flat file but an API call. So, I downloaded the data into a local file,&#xA0;<code class="literal">fords.json</code>. Also, the output from the API call wraps the JSON like <code class="literal">?(json&#xEF;&#xBB;&#xBF;);</code> which would have to be removed before parsing.</p><p>The scripting we will use is as follows. In the script, JSON is a built-in package of Node.js so we can reference this package directly. The JSON package provides many of the standard tools that you need to handle your JSON files and objects.</p><p>Of interest here is the JSON file reader that constructs a standard JavaScript array of objects. Attributes of each object can be referenced by name, for example, <code class="literal">model.model_name</code>.&#xA0;We can see this feature in action with this script that reads in a JSON file and parses out the data elements of interest, based on the field names in the JSON file:</p><pre class="programlisting">
+<span class="strong"><strong>//load the JSON dataset</strong></span>
+<span class="strong"><strong>//http://www.carqueryapi.com/api/0.3/
+    ?callback=?&amp;cmd=getModels&amp;make=ford</strong></span>
+<span class="strong"><strong>var fords = require('/Users/dtoomey/fords.json');</strong></span>
+<span class="strong"><strong>//display how many Ford models are in our data set</strong></span>
+<span class="strong"><strong>console.log("There are " + fords.Models.length +
+    " Ford models in the data set");</strong></span>
+<span class="strong"><strong>//loop over the set</strong></span>
+<span class="strong"><strong>var index = 1</strong></span>
+<span class="strong"><strong>for(var i=0; i&lt;fords.Models.length; i++) {</strong></span>
+<span class="strong"><strong>    //get this model</strong></span>
+<span class="strong"><strong>    var model = fords.Models[i];</strong></span>
+<span class="strong"><strong>    //pull it's name</strong></span>
+<span class="strong"><strong>    var name = model.model_name;</strong></span>
+<span class="strong"><strong>    //if the model name does not have numerics in it</strong></span>
+<span class="strong"><strong>    if(! name.match(/[0-9]/i)) {</strong></span>
+<span class="strong"><strong>        //display the model name</strong></span>
+<span class="strong"><strong>        console.log("Model " + index + " is a " + name);</strong></span>
+<span class="strong"><strong>        index++;</strong></span>
+<span class="strong"><strong>    }</strong></span>
+<span class="strong"><strong>    //only display the first 5</strong></span>
+<span class="strong"><strong>    if (index&gt;5) break;</strong></span>
+<span class="strong"><strong>}</strong></span>
+</pre><p>If we pull this script into a new notebook entry, we get the following screen:</p><p>
+</p><div class="mediaobject"><img src="graphics/B05207_5_8.jpg" alt="Node.js JSON handling"/></div><p>
+</p><p>When the lines are executed, we get the expected results, as follows:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_05_009.jpg" alt="Node.js JSON handling"/></div><p>
+</p></div></body></html>

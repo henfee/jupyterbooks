@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Julia unit testing</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Julia unit testing"><div class="titlepage"><div><div><h1 class="title"><a id="ch04lvl1sec38"/>Julia unit testing</h1></div></div></div><p>As a full language, Julia has unit testing abilities to make sure your code is performing as expected. The unit tests usually reside in the <code class="literal">tests</code> folder.</p><p>Two of the standard functions available for unit testing in Julia are <code class="literal">FactCheck</code> and <code class="literal">Base.Test</code>. They both do the same thing, but react differently to failed tests. <code class="literal">FactCheck</code> will generate an error message that will not stop processing on a failure. If you provide an error handler, that error handler can take control of the test.</p><p>
+<code class="literal">Base.Test</code> will throw an exception and stop processing on the first test failure. In that regard, it is probably not useful as a unit testing function so much as a runtime test that you may put in place to make sure parameters are within reason, or otherwise, just stop processing before something bad happens.</p><p>Both packages are built-in to the standard Julia distributions.</p><p>As an example, we can create a <code class="literal">unit tests</code> notebook that does the same tests and see the resulting, different responses for errors (that is, test failures).</p><p>For <code class="literal">FactCheck</code>, we will use this script:</p><pre class="programlisting">
+<span class="strong"><strong>using FactCheck</strong></span>
+<span class="strong"><strong>f(x) = x^3</strong></span>
+<span class="strong"><strong>facts("cubes") do</strong></span>
+<span class="strong"><strong>    @fact f(2) --&gt; 8</strong></span>
+<span class="strong"><strong>    @fact f(2) --&gt; 7</strong></span>
+<span class="strong"><strong>End</strong></span>
+</pre><p>We are using the <code class="literal">FactCheck</code> package. The simple function we are testing is cubing a number, but it could be anything. We wrap our tests in a <code class="literal">facts () do...end</code> block. Each of the tests is run within the block separate from any other block-so as to group our unit tests together-and is prefixed with <code class="literal">@fact</code>. Also, note we are testing whether the function result following <code class="literal">--&gt;</code> is the right-hand argument.</p><p>When we run this in Jupyter, we see the results shown in the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_04_018.jpg" alt="Julia unit testing"/></div><p>
+</p><p>You can see the failed test, why it failed, what line it was on, and so on, as well as the summary of the facts block that was executed, that is, the number of tests that passed (verified) and the number of tests that failed. Note that, the script continued to run onto the next line.</p><p>For <code class="literal">Base.Test</code>, we have a similar script:</p><pre class="programlisting">
+<span class="strong"><strong>using Base.Test</strong></span>
+<span class="strong"><strong>f(x) = x^3</strong></span>
+<span class="strong"><strong>@test f(2) == 8</strong></span>
+<span class="strong"><strong>@test f(2) == 7</strong></span>
+</pre><p>We are using the <code class="literal">Base.Test</code> package. The function definition we are using is, again, cubing. Then each test is individually-not as part of a test block-prefixed with <code class="literal">@test</code>. Running this script in Jupyter, we see similar results, as shown in the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_04_019.jpg" alt="Julia unit testing"/></div><p>
+</p><p>The failed test information is displayed. However, in this case, the script stopped executing at this point. Hence, I would only consider this for runtime checks to validate input formats.</p></div></body></html>

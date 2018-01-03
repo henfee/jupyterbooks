@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Python data access in Jupyter</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Python data access in Jupyter"><div class="titlepage"><div><div><h1 class="title"><a id="ch02lvl1sec17"/>Python data access in Jupyter</h1></div></div></div><p>Now that we have seen how Python works in Jupyter, including the underlying encoding, then how does Python accessing a large dataset work in Jupyter?</p><p>I started another view for pandas using <code class="literal">Python Data Access</code> as the name. From here, we will read in a large dataset and compute some standard statistics on the data. We are interested in seeing how we use pandas in Jupyter, how well the script performs, and what information is stored in the metadata (especially if it is a larger dataset).</p><p>Our script accesses the <code class="literal">iris</code> dataset that's built into one of the Python packages. All we are looking to do is to read in a slightly large number of items and calculate some basic operations on the dataset. We are really interested to see how much of the data is cached in the IPYNB file</p><p>The Python code is as follows:</p><pre class="programlisting">
+<span class="strong"><strong># import the datasets package</strong></span>
+<span class="strong"><strong>from sklearn import datasets</strong></span>
+<span class="strong"><strong># pull in the iris data</strong></span>
+<span class="strong"><strong>iris_dataset = datasets.load_iris()</strong></span>
+<span class="strong"><strong># grab the first two columns of data</strong></span>
+<span class="strong"><strong>X = iris_dataset.data[:, :2]</strong></span>
+<span class="strong"><strong># calculate some basic statistics</strong></span>
+<span class="strong"><strong>x_count = len(X.flat)</strong></span>
+<span class="strong"><strong>x_min = X[:, 0].min() - .5</strong></span>
+<span class="strong"><strong>x_max = X[:, 0].max() + .5</strong></span>
+<span class="strong"><strong>x_mean = X[:, 0].mean()</strong></span>
+<span class="strong"><strong># display our results</strong></span>
+<span class="strong"><strong>x_count, x_min, x_max, x_mean</strong></span>
+</pre><p>I broke these steps into a couple of cells in Jupyter, as shown in the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_02_008.jpg" alt="Python data access in Jupyter"/></div><p>
+</p><p>Now, run the cells (using <span class="strong"><strong>Cell</strong></span> | <span class="strong"><strong>Run&#xA0;</strong></span>
+<span class="strong"><strong>All</strong></span>) and we get the following display. The only difference is the last <code class="literal">Out</code> line where our values are displayed:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_02_009.jpg" alt="Python data access in Jupyter"/></div><p>
+</p><p>It seemed to take longer to load the library (the first time I ran the script) than to read the data and calculate the statistics.</p><p>If we look in the IPYNB file for this notebook, we see that none of the data is cached in the IPYNB file. We simply have code references to the library, our code, and the output from when we last calculated the script:</p><pre class="programlisting">{ &#xD;
+  "cell_type": "code", &#xD;
+  "execution_count": 4, &#xD;
+  "metadata": { &#xD;
+    "collapsed": false &#xD;
+  }, &#xD;
+  "outputs": [ &#xD;
+    { &#xD;
+      "data": { &#xD;
+        "text/plain": [ &#xD;
+          "(300, 3.7999999999999998, 8.4000000000000004, 5.8433333333333337)" &#xD;
+        ] &#xD;
+      }, &#xD;
+    "execution_count": 4, &#xD;
+    "metadata": {}, &#xD;
+    "output_type": "execute_result" &#xD;
+    } &#xD;
+  ], &#xD;
+  "source": [ &#xD;
+    "# calculate some basic statistics\n", &#xD;
+    "x_count = len(X.flat)\n", &#xD;
+    "x_min = X[:, 0].min() - .5\n", &#xD;
+    "x_max = X[:, 0].max() + .5\n", &#xD;
+    "x_mean = X[:, 0].mean()\n", &#xD;
+    "\n", &#xD;
+    "# display our results\n", &#xD;
+    "x_count, x_min, x_max, x_mean" &#xD;
+  ] &#xD;
+} &#xD;
+</pre></div></body></html>

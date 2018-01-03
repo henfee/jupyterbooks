@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Scala array operations</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Scala array operations"><div class="titlepage"><div><div><h1 class="title"><a id="ch09lvl1sec67"/>Scala array operations</h1></div></div></div><p>Scala does not have pandas, but we can emulate some of that logic with our own coding. We will use the same Titanic dataset used in 
+<a class="link" href="ch02.html" title="Chapter&#xA0;2.&#xA0;Jupyter Python Scripting">Chapter 2</a>
+, <span class="emphasis"><em>Jupyter Python Scripting</em></span>, from <a class="ulink" href="http://www.kaggle.com/c/titanic-gettingStarted/download/train.csv">http://www.kaggle.com/c/titanic-gettingStarted/download/train.csv</a>, which we have downloaded in our local space.</p><p>We can then use similar coding as was used in 
+<a class="link" href="ch02.html" title="Chapter&#xA0;2.&#xA0;Jupyter Python Scripting">Chapter 2</a>
+, <span class="emphasis"><em>Jupyter Python Scripting</em></span>, on pandas:</p><pre class="programlisting">
+<span class="strong"><strong>import scala.io.Source;</strong></span>
+<span class="strong"><strong>val filename = "train.csv"</strong></span>
+<span class="strong"><strong>//PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,
+      Parch,Ticket,Fare,Cabin,Embarked</strong></span>
+<span class="strong"><strong>//1,0,3,"Braund, Mr. Owen Harris",male,22,1,0,A/5 21171,7.25,,S</strong></span>
+<span class="strong"><strong>var males = 0</strong></span>
+<span class="strong"><strong>var females = 0</strong></span>
+<span class="strong"><strong>var males_survived = 0</strong></span>
+<span class="strong"><strong>var females_survived = 0</strong></span>
+<span class="strong"><strong>for (line &lt;- Source.fromFile(filename).getLines) {</strong></span>
+<span class="strong"><strong>    var cols = line.split(",").map(_.trim);</strong></span>
+<span class="strong"><strong>    var sex = cols(5);</strong></span>
+<span class="strong"><strong>    if (sex == "male") { </strong></span>
+<span class="strong"><strong>        males = males + 1;</strong></span>
+<span class="strong"><strong>        if (cols(1).toInt == 1) {</strong></span>
+<span class="strong"><strong>            males_survived = males_survived + 1;</strong></span>
+<span class="strong"><strong>        }</strong></span>
+<span class="strong"><strong>    }</strong></span>
+<span class="strong"><strong>    if (sex == "female") { </strong></span>
+<span class="strong"><strong>        females = females + 1; </strong></span>
+<span class="strong"><strong>        if (cols(1).toInt == 1) {</strong></span>
+<span class="strong"><strong>            females_survived = females_survived + 1;</strong></span>
+<span class="strong"><strong>        }</strong></span>
+<span class="strong"><strong>    }    </strong></span>
+<span class="strong"><strong>}</strong></span>
+<span class="strong"><strong>val mens_survival_rate = males_survived.toFloat/males.toFloat</strong></span>
+<span class="strong"><strong>val womens_survival_rate = females_survived.toFloat/females.toFloat</strong></span>
+</pre><p>In the code, we read the file line by line, parse out the columns (it is a CSV), and then make calculations based on the <code class="literal">sex</code> column of the data. Interestingly Scala arrays are not zero-based!</p><p>When we run this script, we see very similar results as before:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_09_005.jpg" alt="Scala array operations"/></div><p>
+</p></div></body></html>

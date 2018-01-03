@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Log file examination</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Log file examination"><div class="titlepage"><div><div><h1 class="title"><a id="ch10lvl1sec83"/>Log file examination</h1></div></div></div><p>I downloaded one of the <code class="literal">access_log</code> files from <a class="ulink" href="http://www.monitorware.com/">http://www.monitorware.com/</a>. Like any other web access log, we have one line per entry, like this:</p><pre class="programlisting">
+<span class="strong"><strong>64.242.88.10 - - [07/Mar/2004:16:05:49 -0800] "GET /twiki/bin/edit/Main/Double_bounce_sender?topicparent=Main.ConfigurationVariables HTTP/1.1" 401 12846</strong></span>
+</pre><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem" style="list-style-type: disc">The first part is the IP address of the caller, followed by timestamp, type of HTTP access, URL referenced, HTTP type, resultant HTTP Response code, and finally, the number of bytes in the response.</li><li class="listitem" style="list-style-type: disc">We can use Spark to load in and parse out some statistics of the log entries, as in this script:</li></ul></div><pre class="programlisting">
+<span class="strong"><strong>import pyspark</strong></span>
+<span class="strong"><strong>if not 'sc' in globals():</strong></span>
+<span class="strong"><strong>    sc = pyspark.SparkContext()</strong></span>
+<span class="strong"><strong>textFile = sc.textFile("access_log")</strong></span>
+<span class="strong"><strong>print(textFile.count(),"access records")</strong></span>
+<span class="strong"><strong>gets = textFile.filter(lambda line: "GET" in line)</strong></span>
+<span class="strong"><strong>print(gets.count(),"GETs")</strong></span>
+<span class="strong"><strong>posts = textFile.filter(lambda line: "POST" in line)</strong></span>
+<span class="strong"><strong>print(posts.count(),"POSTs")</strong></span>
+<span class="strong"><strong>other = textFile.subtract(gets).subtract(posts)</strong></span>
+<span class="strong"><strong>print(other.count(),"Other")</strong></span>
+<span class="strong"><strong>for x in other.collect():</strong></span>
+<span class="strong"><strong>        print x</strong></span>
+</pre><p>This script has the same preamble as others.</p><p>We read in the <code class="literal">access_log</code> file. Then we print the count of records.</p><p>Similarly, we find out how many log entries were <code class="literal">GET</code> and <code class="literal">POST</code> operations. <code class="literal">GET</code> is assumed to be the most prevalent.</p><p>When I first did this, I really didn't expect anything else, so I removed the <code class="literal">gets</code> and the <code class="literal">posts</code> from the set and printed out the outliers to see what they were.</p><p>When we run this in Jupyter, we see the expected output:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_10_005.jpg" alt="Log file examination"/></div><p>
+</p><p>The text processing was not very fast (especially for so few records).</p><p>I liked being able to work with the data frames in such a way. There is something pleasing about being able to do basic algebra with sets in a programmatic way without having to be concerned about edge cases.</p><p>By the way, a <code class="literal">HEAD</code> request works just like a <code class="literal">GET</code> but does not return the HTTP body. This allows a caller to determine what kind of response would have come back and respond appropriately.</p></div></body></html>

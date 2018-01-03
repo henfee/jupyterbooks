@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Named arguments</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Named arguments"><div class="titlepage"><div><div><h1 class="title"><a id="ch09lvl1sec75"/>Named arguments</h1></div></div></div><p>Scala allows you to specify parameter assignment by name rather than just ordinal position. For example, we can have this code:</p><pre class="programlisting">
+<span class="strong"><strong>def divide(dividend:Int, divisor:Int): Float = </strong></span>
+<span class="strong"><strong>{ dividend.toFloat / divisor.toFloat }</strong></span>
+<span class="strong"><strong>divide(40, 5)</strong></span>
+<span class="strong"><strong>divide(divisor = 40, dividend = 5)</strong></span>
+</pre><p>If we run this in a notebook, we can see the results:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_09_013.jpg" alt="Named arguments"/></div><p>
+</p><p>The first call is to <code class="literal">divide</code> assigned parameters by position. The second call set them accordingly.</p></div></body></html>

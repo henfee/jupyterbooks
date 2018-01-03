@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Installing Jupyter on Windows</title><link rel="stylesheet" href="epub.css" type="text/css"/><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"/></head><body id="page"><div class="section" title="Installing Jupyter on Windows"><div class="titlepage"><div><div><h1 class="title"><a id="ch01lvl1sec8"/>Installing Jupyter on Windows</h1></div></div></div><p>Jupyter requires Python to be installed (it is based on the Python language). There are a couple of tools that will automate the installation of Jupyter (and optionally Python) from a GUI. In this case, we are showing how to install using <span class="strong"><strong>Anaconda</strong></span>, which is a Python tool for distributing software. You first have to install Anaconda. It is available on Windows and Mac environments. Download the executable from 
+<a class="ulink" href="https://www.continuum.io/">https://www.continuum.io/</a>
+ (company that produces Anaconda) and run it to install Anaconda. The software provides a regular installation setup process, as shown in the following screenshot:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_01_015.jpg" alt="Installing Jupyter on Windows"/></div><p>
+</p><p>The installation process goes through the regular steps of making you agree to the distribution rights license:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_01_016.jpg" alt="Installing Jupyter on Windows"/></div><p>
+</p><p>The standard Windows installation allows you to decide whether all users on the machine can run the new software or not. If you are sharing a machine with different levels of users, then you can decide the appropriate action:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_01_017.jpg" alt="Installing Jupyter on Windows"/></div><p>
+</p><p>After clicking on <span class="strong"><strong>Next</strong></span>, it will ask for a destination for the software to reside (I almost always keep the default paths):</p><p>
+</p><div class="mediaobject"><img src="graphics/image_01_018.jpg" alt="Installing Jupyter on Windows"/></div><p>
+</p><p>And, most importantly, make sure that Python installed with Anaconda provides your Python basis going forward (by being placed in the execution path). Remember, Anaconda uses Python tool itself, so this is important.</p><div class="note" title="Note" style=""><div class="inner"><h3 class="title"><a id="note5"/>Note</h3><p>This process takes some time to download and install.</p></div></div><p>Once Anaconda&#xA0;is installed, you need to run a command-line instruction to install Jupyter. The command is as follows:</p><pre class="programlisting">
+<span class="strong"><strong>conda install jupyter</strong></span>
+</pre><p>This will invoke a process to download all the necessary components for Jupyter onto your PC. Your output should look something like this:</p><pre class="programlisting">
+<span class="strong"><strong>C:\Users\Dan&gt;conda install jupyter</strong></span>
+<span class="strong"><strong>Using Anaconda Cloud api site https://api.anaconda.org</strong></span>
+<span class="strong"><strong>Fetching package metadata: ....</strong></span>
+<span class="strong"><strong>Solving package specifications: .........</strong></span>
+<span class="strong"><strong># packages in environment at C:\Users\Dan\Anaconda2:</strong></span>
+<span class="strong"><strong>#</strong></span>
+<span class="strong"><strong>jupyter                   1.0.0                    py27_2</strong></span>
+</pre><div class="note" title="Note" style=""><div class="inner"><h3 class="title"><a id="note6"/>Note</h3><p>Additional lines will be present for an install. I have abbreviated the output. You now have Jupyter installed on your machine. You can start the process using the following command:</p></div></div><pre class="programlisting">
+<span class="strong"><strong>C:\Users\Dan&gt;jupyter notebook</strong></span>
+</pre><p>This command is starting a Jupyter Notebook server on your machine. Once the server is started, a browser instance will be opened at the starting point of the notebook. You should see logging statements similar to the following on your machine as the server starts:</p><pre class="programlisting">
+<span class="strong"><strong>[I 16:21:59.144 NotebookApp] Writing notebook server cookie secret to C:\Users\Dan\AppData\Roaming\jupyter\runtime\notebook_cookie_secret</strong></span>
+<span class="strong"><strong>[I 16:21:59.846 NotebookApp] Serving notebooks from local directory: C:\Users\Dan</strong></span>
+<span class="strong"><strong>[I 16:21:59.846 NotebookApp] 0 active kernels</strong></span>
+<span class="strong"><strong>[I 16:21:59.846 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/</strong></span>
+<span class="strong"><strong>[I 16:21:59.862 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).</strong></span>
+</pre><p>Once Jupyter is running, you will notice a running icon for Jupyter (two inverted crescents) at the bottom of your screen:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_01_020.jpg" alt="Installing Jupyter on Windows"/></div><p>
+</p><p>Note, the last line of the log is the instruction you must use to stop the server (press <span class="emphasis"><em>Ctrl</em></span> + <span class="emphasis"><em>C</em></span> in the command-line window where the server is running).</p><p>If you press <span class="emphasis"><em>Ctrl</em></span> + <span class="emphasis"><em>C</em></span> in that window, the Jupyter server will shut down gracefully:</p><pre class="programlisting">
+<span class="strong"><strong>[W 17:26:36.688 NotebookApp] 404 GET /favicon.ico (::1) 62.00ms referer=None</strong></span>
+<span class="strong"><strong>[W 17:26:36.750 NotebookApp] 404 GET /favicon.ico (::1) 0.00ms referer=None</strong></span>
+<span class="strong"><strong>[I 17:28:24.891 NotebookApp] Interrupted...</strong></span>
+<span class="strong"><strong>[I 17:28:24.891 NotebookApp] Shutting down kernels</strong></span>
+</pre><p>You will notice that the Anaconda package has been installed on your application menu for further use:</p><p>
+</p><div class="mediaobject"><img src="graphics/image_01_021.jpg" alt="Installing Jupyter on Windows"/></div><p>
+</p></div></body></html>
